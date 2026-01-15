@@ -22,3 +22,4 @@ export const metadata: Metadata = {
     icon: "/logo.png",
   },
 };
+
