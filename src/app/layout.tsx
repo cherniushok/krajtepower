@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   title: "Kratje Power",
   description: "Kratje Power landing",
   icons: {
-    icon: "/logo-v2.svg",
+    icon: "/logo.png",
   },
 };
 
@@ -27,8 +27,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="nl" className={`${alfa.variable} ${dmSans.variable}`}>
       <head>
-        <link rel="icon" href="/logo-v2.svg?fav=2" type="image/svg+xml" />
-        <link rel="shortcut icon" href="/logo-v2.svg?fav=2" type="image/svg+xml" />
+        <link rel="icon" href="/logo.png?v=3" type="image/png" />
+        <link rel="shortcut icon" href="/logo.png?v=3" type="image/png" />
       </head>
       <body className="font-body">{children}</body>
     </html>
