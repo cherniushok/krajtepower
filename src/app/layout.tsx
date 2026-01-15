@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   title: "Kratje Power",
   description: "Kratje Power landing",
   icons: {
-    icon: "/logo.svg",
+    icon: "/logo-v2.svg",
   },
 };
 
