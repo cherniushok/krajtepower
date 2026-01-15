@@ -26,9 +26,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="nl" className={`${alfa.variable} ${dmSans.variable}`}>
-      <body className="font-body">
-        {children}
-      </body>
+      <head>
+        <link rel="icon" href="/logo-v2.svg?fav=2" type="image/svg+xml" />
+        <link rel="shortcut icon" href="/logo-v2.svg?fav=2" type="image/svg+xml" />
+      </head>
+      <body className="font-body">{children}</body>
     </html>
   );
 }
