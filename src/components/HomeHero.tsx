@@ -357,7 +357,7 @@ export default function HomeHero() {
       </section>
 
       {/* 3 images section */}
-      <section id="how-it-works" className="bg-[var(--bg-1)] py-16">
+      <section id="how-it-works" className="bg-white py-16">
         <div className="mx-auto max-w-6xl page-pad">
           <h2 className="mb-10 text-center text-3xl font-black tracking-tight md:text-4xl" style={{ fontFamily: "ui-serif, Georgia, serif" }}>
             Hoe het werkt?
