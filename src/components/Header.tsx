@@ -64,14 +64,19 @@ export default function Header() {
         <div className="flex h-full flex-col">
           {/* Drawer header */}
           <div className="flex items-center justify-between border-b border-black/10 px-6 py-5">
-            <Image
-              src="/logo.png"
-              alt="Kratje Power logo"
-              width={20}
-              height={20}
-              sizes="20px"
-              className="h-5 w-5"
-            />
+            <div className="flex items-center gap-2">
+              <Image
+                src="/logo.png"
+                alt="Kratje Power logo"
+                width={20}
+                height={20}
+                sizes="20px"
+                className="h-5 w-5"
+              />
+              <span className="text-sm font-semibold tracking-wide text-black/70">
+                Met liefde van Kratje Power
+              </span>
+            </div>
             <button
               type="button"
               aria-label="Sluit menu"

@@ -18,7 +18,10 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: "Kratje Power",
   description: "We ondersteunen mama’s herstel met wekelijkse boxen vol verse producten en vitamines.",
-  icons: { icon: "/logo.png" },
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -28,5 +31,4 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     </html>
   );
 }
-
 
