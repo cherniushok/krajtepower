@@ -17,7 +17,7 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: "Kratje Power",
-  description: "Kratje Power landing",
+  description: "We ondersteunen mama’s herstel met wekelijkse boxen vol verse producten en vitamines.",
   icons: { icon: "/logo.png" },
 };
 
