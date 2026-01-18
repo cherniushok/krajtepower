@@ -285,8 +285,8 @@ export default function Header() {
             alt="Kratje Power logo"
             width={38}
             height={38}
-            sizes="(max-width: 640px) 26px, (max-width: 1024px) 34px, 38px"
-            className="h-6 w-6 sm:h-8 sm:w-8 md:h-9 md:w-9"
+            sizes="38px"
+            className="h-9 w-9"
           />
         </Link>
         <Link href="/shop" className="font-semibold tracking-wide hover:opacity-70">
