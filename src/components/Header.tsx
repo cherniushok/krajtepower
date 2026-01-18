@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useId, useMemo, useState } from "react";
 
@@ -258,15 +259,32 @@ export default function Header() {
               <span className="h-0.5 w-6 bg-black" />
             </div>
           </button>
-          <span className="hidden font-semibold tracking-wide sm:inline">MENU</span>
+          <span className="hidden sm:inline">
+            <Image
+              src="/logo.png"
+              alt="Kratje Power logo"
+              width={18}
+              height={18}
+              sizes="18px"
+              className="h-[18px] w-[18px]"
+            />
+          </span>
         </div>
 
         <Link
           href="/"
-          className="text-3xl font-black tracking-tight"
+          className="flex items-center gap-2 text-2xl font-black tracking-tight sm:text-3xl"
           style={{ fontFamily: "ui-serif, Georgia, serif" }}
         >
-          KRATJE POWER
+          <span>KRATJE POWER</span>
+          <Image
+            src="/logo.png"
+            alt="Kratje Power logo"
+            width={28}
+            height={28}
+            sizes="(max-width: 640px) 20px, (max-width: 1024px) 24px, 28px"
+            className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7"
+          />
         </Link>
         <Link href="/shop" className="font-semibold tracking-wide hover:opacity-70">
           <span className="hidden sm:inline">BESTEL NU →</span>
