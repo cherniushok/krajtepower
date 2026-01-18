@@ -448,8 +448,8 @@ const proceedToPay = async () => {
               className="fixed inset-0 z-[80] cursor-default bg-black/40"
             />
 
-            <div className="fixed inset-0 z-[90] flex items-center justify-center p-4 sm:p-6">
-              <div className="w-full max-w-3xl overflow-hidden rounded-[28px] border border-black/10 bg-white shadow-[0_20px_70px_rgba(0,0,0,0.22)]">
+            <div className="fixed inset-0 z-[90] flex items-start justify-center overflow-y-auto p-4 sm:items-center sm:p-6">
+              <div className="flex w-full max-w-3xl flex-col overflow-hidden rounded-[28px] border border-black/10 bg-white shadow-[0_20px_70px_rgba(0,0,0,0.22)] max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-3rem)]">
                 <div className="flex items-center justify-between border-b border-black/10 px-6 py-5">
                   <div>
                     <div className="text-xs font-semibold tracking-wide text-black/60">CHECKOUT</div>
@@ -466,166 +466,168 @@ const proceedToPay = async () => {
                   </button>
                 </div>
 
-                <div className="grid gap-0 md:grid-cols-[1fr_320px]">
-                  {/* Left: steps */}
-                  <div className="min-h-0 px-6 py-6">
-                    {checkoutStep === "details" ? (
-                      <>
-                        <h3 className="text-lg font-bold">Jouw gegevens</h3>
-                        <p className="mt-2 text-sm text-black/60">
-                          Vul je gegevens in. Daarna ga je door naar betalen (kaart, Apple Pay, Google Pay).
-                        </p>
+                <div className="min-h-0 flex-1 overflow-y-auto">
+                  <div className="grid gap-0 md:grid-cols-[1fr_320px]">
+                    {/* Left: steps */}
+                    <div className="min-h-0 px-6 py-6">
+                      {checkoutStep === "details" ? (
+                        <>
+                          <h3 className="text-lg font-bold">Jouw gegevens</h3>
+                          <p className="mt-2 text-sm text-black/60">
+                            Vul je gegevens in. Daarna ga je door naar betalen (kaart, Apple Pay, Google Pay).
+                          </p>
 
-                        <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                          <input
-                            className="h-12 rounded-2xl border border-black/15 bg-white px-4 text-sm outline-none focus:border-black/30"
-                            placeholder="Naam en achternaam"
-                            value={customer.fullName}
-                            onChange={(e) => setCustomer({ ...customer, fullName: e.target.value })}
-                          />
-                          <input
-                            className="h-12 rounded-2xl border border-black/15 bg-white px-4 text-sm outline-none focus:border-black/30"
-                            placeholder="E-mail"
-                            type="email"
-                            value={customer.email}
-                            onChange={(e) => setCustomer({ ...customer, email: e.target.value })}
-                          />
-                          <input
-                            className="h-12 rounded-2xl border border-black/15 bg-white px-4 text-sm outline-none focus:border-black/30"
-                            placeholder="Telefoonnummer"
-                            type="tel"
-                            autoComplete="tel"
-                            value={customer.phone}
-                            onChange={(e) => setCustomer({ ...customer, phone: e.target.value })}
-                          />
-                          <input
-                            className="h-12 rounded-2xl border border-black/15 bg-white px-4 text-sm outline-none focus:border-black/30"
-                            placeholder="Adres"
-                            value={customer.address1}
-                            onChange={(e) => setCustomer({ ...customer, address1: e.target.value })}
-                          />
-                          <input
-                            className="h-12 rounded-2xl border border-black/15 bg-white px-4 text-sm outline-none focus:border-black/30"
-                            placeholder="Postcode"
-                            value={customer.postcode}
-                            onChange={(e) => setCustomer({ ...customer, postcode: e.target.value })}
-                          />
-                          <input
-                            className="h-12 rounded-2xl border border-black/15 bg-white px-4 text-sm outline-none focus:border-black/30"
-                            placeholder="Plaats"
-                            value={customer.city}
-                            onChange={(e) => setCustomer({ ...customer, city: e.target.value })}
-                          />
-                        </div>
-
-                        <div className="mt-6 flex flex-wrap gap-3">
-                          <button
-                            type="button"
-                            onClick={closeCheckout}
-                            className="rounded-full border border-black/15 bg-white px-7 py-3.5 text-sm font-semibold text-black hover:bg-black/5"
-                          >
-                            Terug
-                          </button>
-                          <button
-                            type="button"
-                            onClick={proceedToPay}
-                            disabled={isPaying}
-                            className={
-                              "rounded-full bg-black px-7 py-3.5 text-sm font-semibold text-white hover:opacity-90 " +
-                              (isPaying ? "opacity-60 cursor-not-allowed" : "")
-                            }
-                          >
-                            {isPaying ? "Even wachten..." : "Ga door naar betalen →"}
-                          </button>
-                        </div>
-                        {payError ? (
-                          <div className="mt-3 text-sm font-medium text-red-600">
-                            {payError}
-                          </div>
-                        ) : null}
-                      </>
-                    ) : (
-                      <>
-                        <h3 className="text-lg font-bold">Betalen</h3>
-                        <p className="mt-2 text-sm text-black/60">
-                          Volgende stap: we koppelen dit aan Stripe zodat je kunt betalen met kaart, Apple Pay en Google Pay.
-                        </p>
-
-                        <div className="mt-5 rounded-3xl border border-black/10 bg-[var(--bg-1)] p-5">
-                          <div className="flex flex-wrap gap-2">
-                            <span className="rounded-full border border-black/10 bg-white px-3 py-1 text-xs font-semibold text-black/70">
-                              Card
-                            </span>
-                            <span className="rounded-full border border-black/10 bg-white px-3 py-1 text-xs font-semibold text-black/70">
-                              Apple Pay
-                            </span>
-                            <span className="rounded-full border border-black/10 bg-white px-3 py-1 text-xs font-semibold text-black/70">
-                              Google Pay
-                            </span>
+                          <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                            <input
+                              className="h-12 rounded-2xl border border-black/15 bg-white px-4 text-sm outline-none focus:border-black/30"
+                              placeholder="Naam en achternaam"
+                              value={customer.fullName}
+                              onChange={(e) => setCustomer({ ...customer, fullName: e.target.value })}
+                            />
+                            <input
+                              className="h-12 rounded-2xl border border-black/15 bg-white px-4 text-sm outline-none focus:border-black/30"
+                              placeholder="E-mail"
+                              type="email"
+                              value={customer.email}
+                              onChange={(e) => setCustomer({ ...customer, email: e.target.value })}
+                            />
+                            <input
+                              className="h-12 rounded-2xl border border-black/15 bg-white px-4 text-sm outline-none focus:border-black/30"
+                              placeholder="Telefoonnummer"
+                              type="tel"
+                              autoComplete="tel"
+                              value={customer.phone}
+                              onChange={(e) => setCustomer({ ...customer, phone: e.target.value })}
+                            />
+                            <input
+                              className="h-12 rounded-2xl border border-black/15 bg-white px-4 text-sm outline-none focus:border-black/30"
+                              placeholder="Adres"
+                              value={customer.address1}
+                              onChange={(e) => setCustomer({ ...customer, address1: e.target.value })}
+                            />
+                            <input
+                              className="h-12 rounded-2xl border border-black/15 bg-white px-4 text-sm outline-none focus:border-black/30"
+                              placeholder="Postcode"
+                              value={customer.postcode}
+                              onChange={(e) => setCustomer({ ...customer, postcode: e.target.value })}
+                            />
+                            <input
+                              className="h-12 rounded-2xl border border-black/15 bg-white px-4 text-sm outline-none focus:border-black/30"
+                              placeholder="Plaats"
+                              value={customer.city}
+                              onChange={(e) => setCustomer({ ...customer, city: e.target.value })}
+                            />
                           </div>
 
-                          <div className="mt-4 rounded-2xl border border-dashed border-black/20 bg-white p-5 text-sm text-black/60">
-                            Payment form komt hier (Stripe Payment Element / Express Checkout).
+                          <div className="mt-6 flex flex-wrap gap-3">
+                            <button
+                              type="button"
+                              onClick={closeCheckout}
+                              className="rounded-full border border-black/15 bg-white px-7 py-3.5 text-sm font-semibold text-black hover:bg-black/5"
+                            >
+                              Terug
+                            </button>
+                            <button
+                              type="button"
+                              onClick={proceedToPay}
+                              disabled={isPaying}
+                              className={
+                                "rounded-full bg-black px-7 py-3.5 text-sm font-semibold text-white hover:opacity-90 " +
+                                (isPaying ? "opacity-60 cursor-not-allowed" : "")
+                              }
+                            >
+                              {isPaying ? "Even wachten..." : "Ga door naar betalen →"}
+                            </button>
+                          </div>
+                          {payError ? (
+                            <div className="mt-3 text-sm font-medium text-red-600">
+                              {payError}
+                            </div>
+                          ) : null}
+                        </>
+                      ) : (
+                        <>
+                          <h3 className="text-lg font-bold">Betalen</h3>
+                          <p className="mt-2 text-sm text-black/60">
+                            Volgende stap: we koppelen dit aan Stripe zodat je kunt betalen met kaart, Apple Pay en Google Pay.
+                          </p>
+
+                          <div className="mt-5 rounded-3xl border border-black/10 bg-[var(--bg-1)] p-5">
+                            <div className="flex flex-wrap gap-2">
+                              <span className="rounded-full border border-black/10 bg-white px-3 py-1 text-xs font-semibold text-black/70">
+                                Card
+                              </span>
+                              <span className="rounded-full border border-black/10 bg-white px-3 py-1 text-xs font-semibold text-black/70">
+                                Apple Pay
+                              </span>
+                              <span className="rounded-full border border-black/10 bg-white px-3 py-1 text-xs font-semibold text-black/70">
+                                Google Pay
+                              </span>
+                            </div>
+
+                            <div className="mt-4 rounded-2xl border border-dashed border-black/20 bg-white p-5 text-sm text-black/60">
+                              Payment form komt hier (Stripe Payment Element / Express Checkout).
+                            </div>
+
+                            <button
+                              type="button"
+                              className="mt-4 w-full rounded-full bg-black px-7 py-3.5 text-sm font-semibold text-white hover:opacity-90"
+                              onClick={() => alert('Stripe koppelen in de volgende stap')}
+                            >
+                              Betaal veilig
+                            </button>
                           </div>
 
-                          <button
-                            type="button"
-                            className="mt-4 w-full rounded-full bg-black px-7 py-3.5 text-sm font-semibold text-white hover:opacity-90"
-                            onClick={() => alert('Stripe koppelen in de volgende stap')}
-                          >
-                            Betaal veilig
-                          </button>
-                        </div>
-
-                        <div className="mt-6 flex flex-wrap gap-3">
-                          <button
-                            type="button"
-                            onClick={() => setCheckoutStep("details")}
-                            className="rounded-full border border-black/15 bg-white px-7 py-3.5 text-sm font-semibold text-black hover:bg-black/5"
-                          >
-                            ← Terug
-                          </button>
-                          <button
-                            type="button"
-                            onClick={closeCheckout}
-                            className="rounded-full border border-black/15 bg-white px-7 py-3.5 text-sm font-semibold text-black hover:bg-black/5"
-                          >
-                            Sluit
-                          </button>
-                        </div>
-                      </>
-                    )}
-                  </div>
-
-                  {/* Right: summary */}
-                  <div className="border-t border-black/10 bg-white/60 px-6 py-6 md:border-l md:border-t-0">
-                    <h4 className="text-sm font-semibold tracking-wide text-black/60">OVERZICHT</h4>
-
-                    <div className="mt-4 rounded-3xl border border-black/10 bg-white p-5">
-                      <div className="text-base font-bold">{selectedProduct.name}</div>
-                      <div className="mt-1 text-sm text-black/60">{selectedProduct.desc}</div>
-
-                      <div className="mt-4 flex items-baseline justify-between">
-                        <div className="text-sm text-black/60">Prijs</div>
-                        <div className="text-xl font-black tabular-nums">{summaryPrice}</div>
-                      </div>
-
-                      <div className="mt-4 border-t border-black/10 pt-4">
-                        <div className="text-xs font-semibold tracking-wide text-black/60">INCLUSIEF</div>
-                        <ul className="mt-2 space-y-2 text-sm text-black/70">
-                          {selectedProduct.highlights.slice(0, 4).map((h) => (
-                            <li key={h} className="flex gap-2">
-                              <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-black/40" />
-                              <span>{h}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                          <div className="mt-6 flex flex-wrap gap-3">
+                            <button
+                              type="button"
+                              onClick={() => setCheckoutStep("details")}
+                              className="rounded-full border border-black/15 bg-white px-7 py-3.5 text-sm font-semibold text-black hover:bg-black/5"
+                            >
+                              ← Terug
+                            </button>
+                            <button
+                              type="button"
+                              onClick={closeCheckout}
+                              className="rounded-full border border-black/15 bg-white px-7 py-3.5 text-sm font-semibold text-black hover:bg-black/5"
+                            >
+                              Sluit
+                            </button>
+                          </div>
+                        </>
+                      )}
                     </div>
 
-                    <p className="mt-4 text-xs text-black/50">
-                      Let op: Apple Pay/Google Pay vereisen HTTPS en (bij Stripe Elements/Express) domeinregistratie. 
-                    </p>
+                    {/* Right: summary */}
+                    <div className="border-t border-black/10 bg-white/60 px-6 py-6 md:border-l md:border-t-0">
+                      <h4 className="text-sm font-semibold tracking-wide text-black/60">OVERZICHT</h4>
+
+                      <div className="mt-4 rounded-3xl border border-black/10 bg-white p-5">
+                        <div className="text-base font-bold">{selectedProduct.name}</div>
+                        <div className="mt-1 text-sm text-black/60">{selectedProduct.desc}</div>
+
+                        <div className="mt-4 flex items-baseline justify-between">
+                          <div className="text-sm text-black/60">Prijs</div>
+                          <div className="text-xl font-black tabular-nums">{summaryPrice}</div>
+                        </div>
+
+                        <div className="mt-4 border-t border-black/10 pt-4">
+                          <div className="text-xs font-semibold tracking-wide text-black/60">INCLUSIEF</div>
+                          <ul className="mt-2 space-y-2 text-sm text-black/70">
+                            {selectedProduct.highlights.slice(0, 4).map((h) => (
+                              <li key={h} className="flex gap-2">
+                                <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-black/40" />
+                                <span>{h}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+
+                      <p className="mt-4 text-xs text-black/50">
+                        Let op: Apple Pay/Google Pay vereisen HTTPS en (bij Stripe Elements/Express) domeinregistratie. 
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>

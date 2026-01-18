@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef, useState, type TouchEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type TouchEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import HomeSlider from "./HomeSlider";
@@ -195,6 +195,19 @@ export default function HomeHero() {
     // Slide 5: open Header menu (Contact)
     if (current.id === "s5") return openHeaderMenu();
   };
+
+  useEffect(() => {
+    const handler = (event: Event) => {
+      const detail = (event as CustomEvent<{ index?: number }>).detail;
+      if (typeof detail?.index === "number") {
+        const next = Math.max(0, Math.min(totalSlides - 1, detail.index));
+        setActive(next);
+      }
+    };
+
+    window.addEventListener("kp:go-slide", handler as EventListener);
+    return () => window.removeEventListener("kp:go-slide", handler as EventListener);
+  }, [totalSlides]);
 
   return (
     <>

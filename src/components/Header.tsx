@@ -126,6 +126,7 @@ export default function Header() {
                       href={item.href}
                       onClick={(e) => {
                         setMenuOpen(false);
+                        window.dispatchEvent(new CustomEvent("kp:go-slide", { detail: { index: 0 } }));
 
                         // Smooth scroll to the first existing target id (useful if sections were renamed)
                         const targets = (item as any).scrollTargets as string[] | undefined;
@@ -282,10 +283,10 @@ export default function Header() {
           <Image
             src="/logo.png"
             alt="Kratje Power logo"
-            width={28}
-            height={28}
-            sizes="(max-width: 640px) 20px, (max-width: 1024px) 24px, 28px"
-            className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7"
+            width={34}
+            height={34}
+            sizes="(max-width: 640px) 24px, (max-width: 1024px) 30px, 34px"
+            className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8"
           />
         </Link>
         <Link href="/shop" className="font-semibold tracking-wide hover:opacity-70">
