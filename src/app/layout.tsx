@@ -18,8 +18,15 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: "Kratje Power",
   description: "Kratje Power landing",
-  icons: {
-    icon: "/logo.png",
-  },
+  icons: { icon: "/logo.png" },
 };
+
+export default function RootLayout({ children }: { children: ReactNode }) {
+  return (
+    <html lang="nl">
+      <body className="font-body">{children}</body>
+    </html>
+  );
+}
+
 

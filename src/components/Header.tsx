@@ -95,8 +95,8 @@ export default function Header() {
                 // Scroll to the section with the 3 photos (support multiple ids to be safe)
                 { label: "Hoe het werkt", href: "#hoe-het-werkt", scrollTargets: ["hoe-het-werkt", "inhoud", "steps", "how-it-works"] },
                 { label: "Vragen/antwoorden", href: "/vragen-antwoorden" },
-                { label: "Instagram", href: "#reviews" },
-                { label: "TikTok", href: "#contact" },
+                { label: "Instagram", href: "https://www.instagram.com/kratjepower.nl?igsh=eW15aGplM2phdWVq" },
+                { label: "TikTok", href: "https://www.tiktok.com/@kratjepower7" },
               ].map((item) => (
                 <li key={item.href}>
                   {item.href.startsWith("/") ? (
@@ -108,7 +108,7 @@ export default function Header() {
                       <span className="text-lg">{item.label}</span>
                       <span className="text-black/40 transition group-hover:translate-x-0.5">→</span>
                     </Link>
-                  ) : (
+                  ) : item.href.startsWith("#") ? (
                     <a
                       href={item.href}
                       onClick={(e) => {
@@ -129,6 +129,17 @@ export default function Header() {
                           }, 50);
                         }
                       }}
+                      className="group flex items-center justify-between rounded-2xl border border-black/10 bg-white px-5 py-4 font-semibold text-black transition hover:-translate-y-[1px] hover:bg-black/5"
+                    >
+                      <span className="text-lg">{item.label}</span>
+                      <span className="text-black/40 transition group-hover:translate-x-0.5">→</span>
+                    </a>
+                  ) : (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={() => setMenuOpen(false)}
                       className="group flex items-center justify-between rounded-2xl border border-black/10 bg-white px-5 py-4 font-semibold text-black transition hover:-translate-y-[1px] hover:bg-black/5"
                     >
                       <span className="text-lg">{item.label}</span>
@@ -222,7 +233,12 @@ export default function Header() {
               Bel me
             </button>
 
-            <p className="mt-3 text-xs text-black/50">Wijk en Aalburg Te. 0651294322</p>
+            <p className="mt-3 text-xs text-black/50">
+              Wijk en Aalburg Te. 0651294322{" "}
+              <a className="underline" href="mailto:info@kratjepower.nl">
+                info@kratjepower.nl
+              </a>
+            </p>
           </div>
         </div>
       </aside>
