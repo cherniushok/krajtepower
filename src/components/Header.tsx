@@ -64,7 +64,14 @@ export default function Header() {
         <div className="flex h-full flex-col">
           {/* Drawer header */}
           <div className="flex items-center justify-between border-b border-black/10 px-6 py-5">
-            <div className="text-sm font-semibold tracking-wide text-black/70">MENU</div>
+            <Image
+              src="/logo.png"
+              alt="Kratje Power logo"
+              width={20}
+              height={20}
+              sizes="20px"
+              className="h-5 w-5"
+            />
             <button
               type="button"
               aria-label="Sluit menu"
