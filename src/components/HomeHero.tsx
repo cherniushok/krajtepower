@@ -199,11 +199,11 @@ export default function HomeHero() {
   return (
     <>
       <section
-        className="relative overflow-hidden bg-[var(--bg-1)] pt-[44px] sm:pt-[52px] md:pt-[72px] md:h-[calc(100vh-72px)] md:max-h-[720px]"
+        className="relative overflow-hidden bg-[var(--bg-1)] pt-[36px] sm:pt-[48px] md:pt-[72px] md:h-[calc(100vh-72px)] md:max-h-[720px]"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-        <div className="relative mx-auto max-w-6xl page-pad py-8 sm:py-10 md:h-full">
+        <div className="relative mx-auto max-w-6xl page-pad py-6 sm:py-8 md:h-full">
           <div className="relative z-10 grid grid-cols-1 gap-10 md:grid-cols-[88px_1fr_1fr] md:items-stretch md:h-full md:overflow-hidden">
             {/* Slider */}
             <div className="sticky top-[72px] z-20 hidden justify-center md:static md:flex">
@@ -366,8 +366,8 @@ export default function HomeHero() {
           <div className="grid gap-8 md:grid-cols-3">
             {/* Item 1 */}
             <div className="text-center">
-              <h3 className="mb-4 text-lg font-normal">Elke week verse voeding, zonder dat jij iets hoeft te doen.</h3>
               <div className="mx-auto w-full max-w-[320px] px-4 md:max-w-none md:px-0">
+                <h3 className="mb-4 text-lg font-normal">Elke week verse voeding, zonder dat jij iets hoeft te doen.</h3>
                 <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
                   <Image
                     src="/section1_first.png"
@@ -382,8 +382,8 @@ export default function HomeHero() {
 
             {/* Item 2 */}
             <div className="text-center">
-              <h3 className="mb-4 text-lg font-normal">Kies het pakket dat past bij jouw herstel na de bevalling.</h3>
               <div className="mx-auto w-full max-w-[320px] px-4 md:max-w-none md:px-0">
+                <h3 className="mb-4 text-lg font-normal">Kies het pakket dat past bij jouw herstel na de bevalling.</h3>
                 <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
                   <Image
                     src="/section1_second.png"
@@ -398,8 +398,8 @@ export default function HomeHero() {
 
             {/* Item 3 */}
             <div className="text-center">
-              <h3 className="mb-4 text-lg font-normal">Wij regelen het eten, jij richt je op herstel en rust.</h3>
               <div className="mx-auto w-full max-w-[320px] px-4 md:max-w-none md:px-0">
+                <h3 className="mb-4 text-lg font-normal">Wij regelen het eten, jij richt je op herstel en rust.</h3>
                 <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
                   <Image
                     src="/section1_thirty.png"
