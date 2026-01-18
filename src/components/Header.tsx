@@ -271,16 +271,6 @@ export default function Header() {
               <span className="h-0.5 w-6 bg-black" />
             </div>
           </button>
-          <span className="hidden sm:inline">
-            <Image
-              src="/logo.png"
-              alt="Kratje Power logo"
-              width={18}
-              height={18}
-              sizes="18px"
-              className="h-[18px] w-[18px]"
-            />
-          </span>
         </div>
 
         <Link
