@@ -357,7 +357,7 @@ export default function HomeHero() {
       </section>
 
       {/* 3 images section */}
-      <section id="how-it-works" className="bg-white py-16">
+      <section id="how-it-works" className="bg-white pt-16 pb-0">
         <div className="mx-auto max-w-6xl page-pad">
           <h2 className="mb-10 text-center text-3xl font-black tracking-tight md:text-4xl" style={{ fontFamily: "ui-serif, Georgia, serif" }}>
             Hoe het werkt?
@@ -413,12 +413,13 @@ export default function HomeHero() {
             </div>
           </div>
         </div>
+        <div className="mt-12 border-t border-black/10" />
       </section>
 
       {/* Footer */}
       <footer className="bg-[var(--bg-1)] pb-6">
         <div className="mx-auto max-w-6xl page-pad">
-          <div className="mt-10 border-t border-black/10 pt-8">
+          <div className="pt-8">
             <div className="grid gap-6 md:grid-cols-12 md:items-center">
               <div className="md:col-span-5">
                 <div
