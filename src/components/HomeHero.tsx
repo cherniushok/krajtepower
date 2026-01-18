@@ -160,10 +160,23 @@ export default function HomeHero() {
   const scrollToHowItWorks = () => {
     if (typeof window === "undefined") return;
 
-    window.scrollTo({
-      top: document.documentElement.scrollHeight,
-      behavior: "smooth",
-    });
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+    if (isMobile) {
+      setActive(0);
+    }
+
+    window.setTimeout(() => {
+      const target = document.getElementById("how-it-works");
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        return;
+      }
+
+      window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: "smooth",
+      });
+    }, isMobile ? 80 : 0);
   };
 
   const handleSecondaryClick = () => {
@@ -186,11 +199,11 @@ export default function HomeHero() {
   return (
     <>
       <section
-        className="relative overflow-hidden bg-[var(--bg-1)] pt-[56px] sm:pt-[64px] md:pt-[72px] md:h-[calc(100vh-72px)] md:max-h-[720px]"
+        className="relative overflow-hidden bg-[var(--bg-1)] pt-[44px] sm:pt-[52px] md:pt-[72px] md:h-[calc(100vh-72px)] md:max-h-[720px]"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-        <div className="relative mx-auto max-w-6xl page-pad py-10 md:h-full">
+        <div className="relative mx-auto max-w-6xl page-pad py-8 sm:py-10 md:h-full">
           <div className="relative z-10 grid grid-cols-1 gap-10 md:grid-cols-[88px_1fr_1fr] md:items-stretch md:h-full md:overflow-hidden">
             {/* Slider */}
             <div className="sticky top-[72px] z-20 hidden justify-center md:static md:flex">
@@ -354,42 +367,48 @@ export default function HomeHero() {
             {/* Item 1 */}
             <div className="text-center">
               <h3 className="mb-4 text-lg font-normal">Elke week verse voeding, zonder dat jij iets hoeft te doen.</h3>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
-                <Image
-                  src="/section1_first.png"
-                  alt="Verse voeding"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover"
-                />
+              <div className="mx-auto w-full max-w-[320px] px-4 md:max-w-none md:px-0">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
+                  <Image
+                    src="/section1_first.png"
+                    alt="Verse voeding"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover"
+                  />
+                </div>
               </div>
             </div>
 
             {/* Item 2 */}
             <div className="text-center">
               <h3 className="mb-4 text-lg font-normal">Kies het pakket dat past bij jouw herstel na de bevalling.</h3>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
-                <Image
-                  src="/section1_second.png"
-                  alt="Bewust herstel"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover"
-                />
+              <div className="mx-auto w-full max-w-[320px] px-4 md:max-w-none md:px-0">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
+                  <Image
+                    src="/section1_second.png"
+                    alt="Bewust herstel"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover"
+                  />
+                </div>
               </div>
             </div>
 
             {/* Item 3 */}
             <div className="text-center">
               <h3 className="mb-4 text-lg font-normal">Wij regelen het eten, jij richt je op herstel en rust.</h3>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
-                <Image
-                  src="/section1_thirty.png"
-                  alt="Rust voor mama"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover"
-                />
+              <div className="mx-auto w-full max-w-[320px] px-4 md:max-w-none md:px-0">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
+                  <Image
+                    src="/section1_thirty.png"
+                    alt="Rust voor mama"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover"
+                  />
+                </div>
               </div>
             </div>
           </div>
