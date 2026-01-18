@@ -57,7 +57,7 @@ export default function VragenAntwoordenPage() {
     <>
       <Header />
 
-      <main className="mx-auto max-w-6xl px-6 py-16">
+      <main className="mx-auto max-w-6xl page-pad py-16">
 
         <div className="mt-8 rounded-3xl border border-black/10 bg-white p-8 shadow-sm">
           <div className="space-y-4">
@@ -74,7 +74,7 @@ export default function VragenAntwoordenPage() {
       </main>
       {/* Footer */}
       <footer className="bg-[var(--bg-1)] pb-6">
-        <div className="mx-auto max-w-6xl px-6">
+        <div className="mx-auto max-w-6xl page-pad">
           <div className="mt-10 border-t border-black/10 pt-8">
             <div className="grid gap-6 md:grid-cols-12 md:items-center">
               <div className="md:col-span-5">

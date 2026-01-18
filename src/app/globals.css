@@ -3,13 +3,8 @@
 :root {
   --background: #F7F5F1;
   --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  color-scheme: light;
+  --page-pad: clamp(16px, 4vw, 32px);
 }
 
 body {
@@ -42,3 +37,27 @@ header {
   z-index: 50;
 }
 
+.page-pad {
+  padding-left: var(--page-pad);
+  padding-right: var(--page-pad);
+  padding-left: max(var(--page-pad), env(safe-area-inset-left));
+  padding-right: max(var(--page-pad), env(safe-area-inset-right));
+}
+
+@layer utilities {
+  .text-black\/80 {
+    color: #333333;
+  }
+  .text-black\/70 {
+    color: #4d4d4d;
+  }
+  .text-black\/60 {
+    color: #666666;
+  }
+  .text-black\/50 {
+    color: #808080;
+  }
+  .text-black\/40 {
+    color: #999999;
+  }
+}
