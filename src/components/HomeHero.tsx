@@ -186,7 +186,7 @@ export default function HomeHero() {
   return (
     <>
       <section
-        className="relative overflow-hidden bg-[var(--bg-1)] pt-[72px] md:h-[calc(100vh-72px)] md:max-h-[720px]"
+        className="relative overflow-hidden bg-[var(--bg-1)] pt-[56px] sm:pt-[64px] md:pt-[72px] md:h-[calc(100vh-72px)] md:max-h-[720px]"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
