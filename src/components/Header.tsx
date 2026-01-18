@@ -244,7 +244,7 @@ export default function Header() {
       </aside>
 
       {/* Top bar */}
-      <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6">
+      <div className="mx-auto flex h-20 max-w-6xl items-center justify-between page-pad">
         <div className="flex items-center gap-4">
           <button
             type="button"
@@ -258,7 +258,7 @@ export default function Header() {
               <span className="h-0.5 w-6 bg-black" />
             </div>
           </button>
-          <span className="font-semibold tracking-wide">MENU</span>
+          <span className="hidden font-semibold tracking-wide sm:inline">MENU</span>
         </div>
 
         <Link
@@ -269,7 +269,8 @@ export default function Header() {
           KRATJE POWER
         </Link>
         <Link href="/shop" className="font-semibold tracking-wide hover:opacity-70">
-          BESTEL NU →
+          <span className="hidden sm:inline">BESTEL NU →</span>
+          <span className="sm:hidden">→</span>
         </Link>
       </div>
     </header>

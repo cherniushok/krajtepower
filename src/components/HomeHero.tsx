@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState, type TouchEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import HomeSlider from "./HomeSlider";
@@ -99,6 +99,38 @@ export default function HomeHero() {
 
   const [active, setActive] = useState(0);
   const current = slides[active];
+  const totalSlides = slides.length;
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
+
+  const goNext = () => setActive((prev) => (prev + 1) % totalSlides);
+  const goPrev = () => setActive((prev) => (prev - 1 + totalSlides) % totalSlides);
+
+  const handleTouchStart = (event: TouchEvent<HTMLElement>) => {
+    if (event.touches.length !== 1) return;
+    touchStart.current = {
+      x: event.touches[0].clientX,
+      y: event.touches[0].clientY,
+    };
+  };
+
+  const handleTouchEnd = (event: TouchEvent<HTMLElement>) => {
+    if (!touchStart.current || event.changedTouches.length === 0) return;
+    const start = touchStart.current;
+    touchStart.current = null;
+
+    const end = event.changedTouches[0];
+    const dx = end.clientX - start.x;
+    const dy = end.clientY - start.y;
+    const absX = Math.abs(dx);
+    const absY = Math.abs(dy);
+
+    if (absX < 50 || absX < absY) return;
+    if (dx < 0) {
+      goNext();
+    } else {
+      goPrev();
+    }
+  };
 
   const openHeaderMenu = () => {
     if (typeof window === "undefined") return;
@@ -153,81 +185,103 @@ export default function HomeHero() {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-[var(--bg-1)] pt-[72px] md:h-[calc(100vh-72px)] md:max-h-[720px]">
-        <div className="relative mx-auto max-w-6xl px-5 py-10 sm:px-6 md:h-full">
+      <section
+        className="relative overflow-hidden bg-[var(--bg-1)] pt-[72px] md:h-[calc(100vh-72px)] md:max-h-[720px]"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
+        <div className="relative mx-auto max-w-6xl page-pad py-10 md:h-full">
           <div className="relative z-10 grid grid-cols-1 gap-10 md:grid-cols-[88px_1fr_1fr] md:items-stretch md:h-full md:overflow-hidden">
             {/* Slider */}
-            <div className="flex justify-center md:static sticky top-[72px] z-20">
+            <div className="sticky top-[72px] z-20 hidden justify-center md:static md:flex">
               <HomeSlider slides={slides} activeIndex={active} onChange={setActive} />
             </div>
 
             {/* Text */}
-            <div
-              key={current.id}
-              className="min-w-0 w-full lg:pr-10 flex flex-col h-full min-h-0 pb-6 hero-fade-up"
-            >
-              <h1 className="font-title text-4xl font-black leading-[1.02] sm:text-5xl lg:text-6xl">
-                {current.id === "s1" ? (
-                  <>
-                    <span className="whitespace-nowrap">{current.title}</span>
-                    <br />
-                    <span className="whitespace-nowrap">{current.subtitle}</span>
-                    <br />
-                    <span className="whitespace-nowrap">{current.body}</span>
-                  </>
-                ) : (
-                  <>
-                    {current.title}
-                    {current.subtitle && (
-                      <>
-                        <br />
-                        {current.subtitle}
-                      </>
-                    )}
-                    {current.body && (
-                      <>
-                        <br />
-                        {current.body}
-                      </>
-                    )}
-                  </>
-                )}
-              </h1>
-
-              <div className="font-body mt-4 max-w-2xl text-base leading-relaxed text-black/70 sm:text-lg space-y-3 flex-1 min-h-0 overflow-y-auto pr-2">
-                {current.description
-                  .split("\n")
-                  .map((line) => line.trim())
-                  .filter(Boolean)
-                  .map((line, idx) => (
-                    <p key={idx}>{line}</p>
-                  ))}
-              </div>
-
-              <div className="mt-4 flex flex-wrap gap-4">
-                {current.id === "s5" ? (
-                  <button
-                    type="button"
-                    onClick={scrollToHowItWorks}
-                    className="rounded-full bg-black px-10 py-4 font-semibold text-white hover:opacity-90"
-                  >
-                    {current.primaryCta}
-                  </button>
-                ) : (
-                  <Link href="/shop">
-                    <button className="rounded-full bg-black px-10 py-4 font-semibold text-white hover:opacity-90">
-                      {current.primaryCta}
-                    </button>
-                  </Link>
-                )}
-
+            <div key={current.id} className="relative min-w-0 w-full hero-fade-up">
+              <div className="pointer-events-none absolute inset-y-0 left-0 right-0 flex items-center justify-between md:hidden">
                 <button
                   type="button"
-                  onClick={handleSecondaryClick}
-                  className="rounded-full border border-black/20 bg-white px-10 py-4 font-semibold hover:bg-black/5"
+                  aria-label="Vorige slide"
+                  onClick={goPrev}
+                  className="pointer-events-auto inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-white shadow-sm transition active:scale-95"
                 >
-                  {current.secondaryCta}
+                  ←
                 </button>
+                <button
+                  type="button"
+                  aria-label="Volgende slide"
+                  onClick={goNext}
+                  className="pointer-events-auto inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-white shadow-sm transition active:scale-95"
+                >
+                  →
+                </button>
+              </div>
+
+              <div className="flex flex-col h-full min-h-0 pb-6 px-14 sm:px-16 md:px-0 lg:pr-10">
+                <h1 className="font-title text-4xl font-black leading-[1.02] sm:text-5xl lg:text-6xl">
+                  {current.id === "s1" ? (
+                    <>
+                      <span className="whitespace-nowrap">{current.title}</span>
+                      <br />
+                      <span className="whitespace-nowrap">{current.subtitle}</span>
+                      <br />
+                      <span className="whitespace-nowrap">{current.body}</span>
+                    </>
+                  ) : (
+                    <>
+                      {current.title}
+                      {current.subtitle && (
+                        <>
+                          <br />
+                          {current.subtitle}
+                        </>
+                      )}
+                      {current.body && (
+                        <>
+                          <br />
+                          {current.body}
+                        </>
+                      )}
+                    </>
+                  )}
+                </h1>
+
+                <div className="font-body mt-4 max-w-2xl text-base leading-relaxed text-black/70 sm:text-lg space-y-3 flex-1 min-h-0 overflow-y-auto pr-2">
+                  {current.description
+                    .split("\n")
+                    .map((line) => line.trim())
+                    .filter(Boolean)
+                    .map((line, idx) => (
+                      <p key={idx}>{line}</p>
+                    ))}
+                </div>
+
+                <div className="mt-4 flex flex-wrap gap-4">
+                  {current.id === "s5" ? (
+                    <button
+                      type="button"
+                      onClick={scrollToHowItWorks}
+                      className="rounded-full bg-black px-10 py-4 font-semibold text-white hover:opacity-90"
+                    >
+                      {current.primaryCta}
+                    </button>
+                  ) : (
+                    <Link href="/shop">
+                      <button className="rounded-full bg-black px-10 py-4 font-semibold text-white hover:opacity-90">
+                        {current.primaryCta}
+                      </button>
+                    </Link>
+                  )}
+
+                  <button
+                    type="button"
+                    onClick={handleSecondaryClick}
+                    className="rounded-full border border-black/20 bg-white px-10 py-4 font-semibold hover:bg-black/5"
+                  >
+                    {current.secondaryCta}
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -244,7 +298,10 @@ export default function HomeHero() {
                     fill
                     priority
                     sizes="(max-width: 768px) 50vw, (max-width: 1024px) 50vw, 50vw"
-                    className="object-contain object-right object-center md:scale-110"
+                    className={
+                      "object-contain object-right object-center" +
+                      (current.id === "s5" ? " md:scale-125" : " md:scale-110")
+                    }
                   />
                 </div>
               </div>
@@ -288,7 +345,7 @@ export default function HomeHero() {
 
       {/* 3 images section */}
       <section id="how-it-works" className="bg-[var(--bg-1)] py-16">
-        <div className="mx-auto max-w-6xl px-6">
+        <div className="mx-auto max-w-6xl page-pad">
           <h2 className="mb-10 text-center text-3xl font-black tracking-tight md:text-4xl" style={{ fontFamily: "ui-serif, Georgia, serif" }}>
             Hoe het werkt?
           </h2>
@@ -341,7 +398,7 @@ export default function HomeHero() {
 
       {/* Footer */}
       <footer className="bg-[var(--bg-1)] pb-6">
-        <div className="mx-auto max-w-6xl px-6">
+        <div className="mx-auto max-w-6xl page-pad">
           <div className="mt-10 border-t border-black/10 pt-8">
             <div className="grid gap-6 md:grid-cols-12 md:items-center">
               <div className="md:col-span-5">
