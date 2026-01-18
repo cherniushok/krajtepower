@@ -68,10 +68,10 @@ export default function Header() {
               <Image
                 src="/logo.png"
                 alt="Kratje Power logo"
-                width={20}
-                height={20}
-                sizes="20px"
-                className="h-5 w-5"
+                width={38}
+                height={38}
+                sizes="38px"
+                className="h-9 w-9"
               />
               <span className="text-sm font-semibold tracking-wide text-black/70">
                 Met liefde van Kratje Power
@@ -283,10 +283,10 @@ export default function Header() {
           <Image
             src="/logo.png"
             alt="Kratje Power logo"
-            width={34}
-            height={34}
-            sizes="(max-width: 640px) 24px, (max-width: 1024px) 30px, 34px"
-            className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8"
+            width={38}
+            height={38}
+            sizes="(max-width: 640px) 26px, (max-width: 1024px) 34px, 38px"
+            className="h-6 w-6 sm:h-8 sm:w-8 md:h-9 md:w-9"
           />
         </Link>
         <Link href="/shop" className="font-semibold tracking-wide hover:opacity-70">
