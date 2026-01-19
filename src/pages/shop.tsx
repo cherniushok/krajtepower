@@ -318,7 +318,7 @@ const proceedToPay = async () => {
                                 <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-black/80">
                                   {plan.id} weken
                                 </span>
-                                {p.id === "mama-kratje-bv" && plan?.id === "6" ? (
+                                {plan?.id === "6" && (p.id === "mama-kratje" || p.id === "mama-kratje-bv") ? (
                                   <span className="rounded-full border border-amber-200 bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-900">
                                     Meest gekozen!
                                   </span>
