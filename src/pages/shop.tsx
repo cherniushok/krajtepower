@@ -279,7 +279,6 @@ const proceedToPay = async () => {
                     <div className="pointer-events-none absolute -right-24 -top-24 h-56 w-56 rounded-full bg-black/5" />
                     <div className="absolute top-9 right-4 z-10 flex flex-col items-end text-right sm:right-6">
                       <div className="flex items-center justify-end gap-2 whitespace-nowrap text-3xl font-black tabular-nums">
-                        {displayPrice}
                         <Image
                           src="/logo.png"
                           alt="Kratje Power logo"
@@ -288,6 +287,7 @@ const proceedToPay = async () => {
                           sizes="38px"
                           className="h-9 w-9"
                         />
+                        {displayPrice}
                       </div>
                     </div>
 
