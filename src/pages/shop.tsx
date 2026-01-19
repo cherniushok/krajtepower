@@ -282,6 +282,11 @@ const proceedToPay = async () => {
                         {displayPrice}
                       </div>
                     </div>
+                    {p.id === "mama-kratje-bv" && plan?.id === "6" ? (
+                      <div className="absolute top-12 left-1/2 z-10 -translate-x-1/2 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-[11px] font-semibold text-amber-900">
+                        Meest gekozen!
+                      </div>
+                    ) : null}
 
                     <div className="relative flex flex-col gap-6">
                       <div className="flex items-start justify-between gap-4">
@@ -316,6 +321,14 @@ const proceedToPay = async () => {
                               <h3 className="text-2xl font-black tracking-tight sm:text-3xl">
                                 Mama Kratje – zonder borstvoeding
                               </h3>
+                              <Image
+                                src="/logo.png"
+                                alt="Kratje Power logo"
+                                width={38}
+                                height={38}
+                                sizes="38px"
+                                className="mt-3 h-9 w-9"
+                              />
                               <p className="text-sm leading-relaxed text-black/70">
                                 Dit Mama Kratje is afgestemd op moeders die geen borstvoeding geven en hun lichaam willen
                                 ondersteunen tijdens het herstel na de bevalling. Praktisch, voedend en makkelijk in
@@ -406,8 +419,17 @@ const proceedToPay = async () => {
                           ) : p.id === "mama-kratje-bv" ? (
                             <div className="mt-4 space-y-5">
                               <h3 className="text-2xl font-black tracking-tight sm:text-3xl">
-                                Mama Kratje – mét borstvoeding
+                                Mama Kratje – mét
+                                <span className="block">borstvoeding</span>
                               </h3>
+                              <Image
+                                src="/logo.png"
+                                alt="Kratje Power logo"
+                                width={38}
+                                height={38}
+                                sizes="38px"
+                                className="mt-3 h-9 w-9"
+                              />
                               <p className="text-sm leading-relaxed text-black/70">
                                 Dit Mama Kratje is speciaal samengesteld voor moeders die borstvoeding geven en extra
                                 voedingsstoffen nodig hebben tijdens het herstel en de melkproductie. Alles zit per dag
