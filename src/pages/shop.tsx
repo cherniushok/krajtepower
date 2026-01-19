@@ -285,7 +285,7 @@ const proceedToPay = async () => {
                           width={38}
                           height={38}
                           sizes="38px"
-                          className="h-9 w-9"
+                          className="h-9 w-9 -ml-2.5"
                         />
                         {displayPrice}
                       </div>
