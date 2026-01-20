@@ -35,7 +35,7 @@ export default function ShopPage() {
       id: "mama-kratje",
       badge: "8 weken",
       name: "Mama Kratje – zónder borstvoeding",
-      desc: "Herstel, energie en overzicht in een periode waarin alles nieuw is.",
+      desc: "Rust, herstel en structuur zonder dat je alles zelf hoeft uit te zoeken.",
       price: "€289",
       per: "per 8 weken",
       planOptions: [
@@ -44,9 +44,9 @@ export default function ShopPage() {
       ],
       defaultPlanId: "8",
       highlights: [
-        "21 porties fruit, zaden en noten voor natuurlijke energie, vezels en gezonde vetten",
-        "Een dagelijkse power-shake met 36 soorten groenten, ter aanvulling van je voeding",
-        "30 gram eiwit per dag, ter ondersteuning van spierherstel en kracht",
+        "Dagelijkse porties fruit, zaden en noten voor energie, vezels en gezonde vetten",
+        "Power-shake met 36 soorten groenten als makkelijke groenteboost",
+        "30 gram eiwit per dag om herstel en spierkracht te ondersteunen",
       ],
       status: "active",
     },
@@ -335,12 +335,11 @@ const proceedToPay = async () => {
                                 Mama Kratje – zónder borstvoeding
                               </h3>
                               <div className="space-y-3 text-sm leading-relaxed text-black/70">
-                                <p>Herstel, energie en overzicht in een periode waarin alles nieuw is.</p>
+                                <p>Rust, herstel en structuur in een periode waarin alles nieuw is.</p>
                                 <p>
-                                  Na de bevalling is je lichaam aan het herstellen. Ook zonder borstvoeding vraagt dat
-                                  veel van je energie, reserves en focus. Dit Mama Kratje is samengesteld om je
-                                  dagelijks te ondersteunen met voedzame basis, zonder dat je hoeft na te denken over
-                                  wat je nodig hebt.
+                                  Na de bevalling heeft je lichaam tijd nodig om aan te sterken. Ook zonder
+                                  borstvoeding vraagt dat om extra voeding en regelmaat. Dit Mama Kratje geeft je een
+                                  duidelijke basis, zonder dat je hoeft te plannen of te rekenen.
                                 </p>
                               </div>
 
@@ -348,20 +347,20 @@ const proceedToPay = async () => {
                                 <p className="text-sm font-semibold text-black">De box bevat onder andere:</p>
                                 <ul className="list-disc space-y-1 pl-5 text-sm text-black/70">
                                   <li>
-                                    21 porties fruit, zaden en noten voor natuurlijke energie, vezels en gezonde vetten
+                                    Dagelijkse porties fruit, zaden en noten voor energie, vezels en gezonde vetten
                                   </li>
-                                  <li>Een dagelijkse power-shake met 36 soorten groenten, ter aanvulling van je voeding</li>
-                                  <li>30 gram eiwit per dag, ter ondersteuning van spierherstel en kracht</li>
+                                  <li>Power-shake met 36 soorten groenten als makkelijke groenteboost</li>
+                                  <li>30 gram eiwit per dag om herstel en spierkracht te ondersteunen</li>
                                 </ul>
                               </div>
 
                               <div className="space-y-3 text-sm leading-relaxed text-black/70">
-                                <p>Alles is vooraf afgestemd en in porties verdeeld.</p>
+                                <p>Alles is vooraf afgestemd en per dag verpakt.</p>
                                 <p>
-                                  Niet om perfect te eten, maar om elke dag genoeg binnen te krijgen, ook als je hoofd
-                                  vol zit en je tijd tekortkomt.
+                                  Niet om perfect te eten, maar om elke dag genoeg binnen te krijgen, ook als je weinig
+                                  tijd en energie hebt.
                                 </p>
-                                <p>Dit kratje geeft structuur, rust en ondersteuning in je herstel — op een haalbare manier.</p>
+                                <p>Dit kratje geeft houvast en ondersteuning in je herstel — op een haalbare manier.</p>
                               </div>
                             </div>
                           ) : p.id === "mama-kratje-bv" ? (
@@ -523,7 +522,7 @@ const proceedToPay = async () => {
 
                       <div className="w-full overflow-hidden rounded-2xl border border-black/10 bg-black/5">
                         <Image
-                          src="/unknown4.jpeg"
+                          src="/product.png"
                           alt="Product foto"
                           width={1600}
                           height={900}
@@ -593,9 +592,9 @@ const proceedToPay = async () => {
                                   Mama Kratje – zonder borstvoeding
                                 </h3>
                                 <p className="text-base leading-relaxed text-white/85">
-                                  Dit Mama Kratje is afgestemd op moeders die geen borstvoeding geven en hun lichaam
-                                  willen ondersteunen tijdens het herstel na de bevalling. Praktisch, voedend en
-                                  makkelijk in gebruik.
+                                  Voor moeders die geen borstvoeding geven, maar wel extra voeding en herstel willen in
+                                  de weken na de bevalling. Alles is afgestemd en per dag verpakt, zodat je niet hoeft
+                                  te plannen.
                                 </p>
                               </div>
 
@@ -611,7 +610,7 @@ const proceedToPay = async () => {
                                       bessen.
                                     </p>
                                     <p className="mt-1 leading-relaxed text-white/85">
-                                      Voor vitamines, mineralen en natuurlijke energie.
+                                      Voor vitamines, mineralen en natuurlijke energie, zonder gedoe.
                                     </p>
                                   </div>
 
@@ -633,6 +632,9 @@ const proceedToPay = async () => {
                                       <li>Bevat 36 verschillende soorten groenten</li>
                                       <li>Verpakt als een lekkere, makkelijk te mengen shake.</li>
                                     </ul>
+                                    <p className="mt-2 leading-relaxed text-white/85">
+                                      Een eenvoudige groenteboost, ook als koken niet lukt.
+                                    </p>
                                   </div>
 
                                   <div>
@@ -642,7 +644,7 @@ const proceedToPay = async () => {
                                       <li>Keuze uit plantaardig of dierlijk</li>
                                     </ul>
                                     <p className="mt-2 leading-relaxed text-white/85">
-                                      Afgestemd op herstel zonder borstvoeding.
+                                      Afgestemd op herstel en spierkracht.
                                     </p>
                                   </div>
 
@@ -651,7 +653,7 @@ const proceedToPay = async () => {
                                       💊 Vitamine- en mineralencapsules
                                     </h4>
                                     <p className="mt-2 leading-relaxed text-white/85">
-                                      Ter aanvulling van je dagelijkse voeding.
+                                      Als aanvulling op je dagelijkse basis.
                                     </p>
                                   </div>
 
@@ -667,8 +669,8 @@ const proceedToPay = async () => {
                                       🎁 Extra’s voor mama, baby én papa
                                     </h4>
                                     <p className="mt-2 leading-relaxed text-white/85">
-                                      Wisselende handige en leuke extra’s, zoals babydoekjes, speentjes,
-                                      verzorgingsproducten, een magazine of iets voor papa.
+                                      Wisselende handige extra’s, zoals babydoekjes, speentjes, verzorgingsproducten,
+                                      een magazine of iets voor papa.
                                     </p>
                                   </div>
                                 </div>
@@ -677,10 +679,10 @@ const proceedToPay = async () => {
                               <div className="space-y-2">
                                 <h3 className="text-lg font-semibold text-white">Waarvoor bedoeld?</h3>
                                 <p className="text-base leading-relaxed text-white/85">
-                                  Ondersteuning van lichamelijk herstel en dagelijkse voedingsinname na de bevalling.
+                                  Ondersteuning van herstel en dagelijkse voedingsinname na de bevalling.
                                 </p>
                                 <p className="text-base leading-relaxed text-white/85">
-                                  Geen maaltijdvervanger, maar een fijne basis voor elke dag.
+                                  Geen maaltijdvervanger, maar een haalbare basis voor elke dag.
                                 </p>
                               </div>
                             </div>
