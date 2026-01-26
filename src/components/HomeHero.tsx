@@ -40,9 +40,9 @@ export default function HomeHero() {
         subtitle: "",
         body: "",
         description:
-          "De eerste weken na een bevalling zijn intens: je herstelt, terwijl je dag en nacht klaarstaat voor je kindje. Juist dan kan er snel een voedingstekort ontstaan.\n\n" +
-          "Veel moeders bouwen in de eerste 8 weken tekorten op (zoals ijzer, magnesium en B‑vitamines). Dit kan zorgen voor vermoeidheid, sombere gevoelens en een trager herstel — terwijl je lichaam juist méér nodig heeft, zeker bij borstvoeding.\n\n" +
-          "Mama Krat ondersteunt je in deze cruciale periode met gerichte, voedzame extra’s: praktisch, en wetenschappelijk onderbouwd — zonder dat jij hoeft uit te zoeken wat je nodig hebt.",
+          "De eerste weken na een bevalling zijn intens: je herstelt, terwijl je dag en nacht klaarstaat voor je kindje.\n\n" +
+          "Juist dan ontstaan makkelijk tekorten (zoals ijzer, magnesium en B‑vitamines). Dat kan zorgen voor vermoeidheid, somberte en een trager herstel.\n\n" +
+          "Mama Krat geeft je gerichte, voedzame extra’s: praktisch, en onderbouwd — zonder dat jij hoeft uit te zoeken wat je nodig hebt.",
         primaryCta: "Kies jouw pakket",
         secondaryCta: "Contact",
         imageSrc: "/collage.png",
@@ -76,7 +76,7 @@ export default function HomeHero() {
           "Want het Mama Kratje draait niet alleen om gezond eten, maar om goed zorgen voor jezelf. En dat betekent óók genieten.",
         primaryCta: "Start nu",
         secondaryCta: "→",
-        imageSrc: "",
+        imageSrc: "/mamarelax.png",
       },
       {
         id: "s5",
@@ -273,7 +273,7 @@ export default function HomeHero() {
                   )}
                 </h1>
 
-                <div className="font-body mt-4 max-w-2xl text-base leading-relaxed text-black/70 sm:text-lg space-y-3 flex-1 min-h-0 overflow-y-auto pr-2">
+                <div className="hero-scroll font-body mt-4 max-w-2xl text-base leading-relaxed text-black/70 sm:text-lg space-y-3 flex-1 min-h-0 overflow-y-scroll pr-4">
                   {current.description
                     .split("\n")
                     .map((line) => line.trim())
@@ -343,6 +343,23 @@ export default function HomeHero() {
           .hero-fade-right {
             animation: heroFadeRight 360ms ease-out both;
             will-change: transform, opacity;
+          }
+          .hero-scroll {
+            scrollbar-gutter: stable both-edges;
+            scrollbar-width: auto;
+            scrollbar-color: rgba(0, 0, 0, 0.35) rgba(0, 0, 0, 0.08);
+          }
+          .hero-scroll::-webkit-scrollbar {
+            width: 12px;
+          }
+          .hero-scroll::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.08);
+            border-radius: 999px;
+          }
+          .hero-scroll::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.35);
+            border-radius: 999px;
+            border: 3px solid rgba(255, 255, 255, 0.6);
           }
 
           @keyframes heroFadeUp {
