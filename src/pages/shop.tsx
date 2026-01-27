@@ -474,7 +474,7 @@ const proceedToPay = async () => {
 
                       <div className="w-full overflow-hidden rounded-2xl border border-black/10 bg-black/5">
                         <Image
-                          src="/unknown4.jpeg"
+                          src="/product.jpg"
                           alt="Product foto"
                           width={1600}
                           height={900}
