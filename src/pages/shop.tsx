@@ -419,36 +419,75 @@ const proceedToPay = async () => {
                             <div className="space-y-6">
                               <div className="space-y-3">
                                 <h3 className="text-lg font-semibold text-white">Mama Kratje – mét borstvoeding</h3>
-                                <div className="space-y-3 text-base leading-relaxed text-white/85">
-                                  <p>Extra voeding voor een lichaam dat meer geeft dan ooit.</p>
-                                  <p>
-                                    Borstvoeding geven betekent dat je lichaam dagelijks extra energie en
-                                    voedingsstoffen verbruikt. Dit Mama Kratje is speciaal samengesteld voor mama’s die
-                                    borstvoeding geven en daarom meer nodig hebben dan alleen basisvoeding.
-                                  </p>
-                                </div>
+                                <p className="text-base leading-relaxed text-white/85">
+                                  Dit Mama Kratje is speciaal samengesteld voor moeders die borstvoeding geven en extra
+                                  voedingsstoffen nodig hebben tijdens het herstel en de melkproductie. Alles zit per
+                                  dag verpakt, zodat je zonder nadenken goed voor jezelf kunt zorgen.
+                                </p>
                               </div>
 
                               <div className="space-y-4">
-                                <h3 className="text-lg font-semibold text-white">De box ondersteunt je met:</h3>
-                                <ul className="list-disc space-y-1 pl-5 text-base text-white/85">
-                                  <li>Een dagelijkse power-shake met 36 soorten groenten</li>
-                                  <li>
-                                    50 gram eiwit per dag, afgestemd op de verhoogde behoefte tijdens borstvoeding
-                                  </li>
-                                  <li>Voeding die helpt om je energie op peil te houden en tekorten te voorkomen</li>
-                                </ul>
+                                <h3 className="text-lg font-semibold text-white">Inhoud van het Mama Kratje (per week)</h3>
+                                <div className="space-y-4 text-base text-white/85">
+                                  <div className="space-y-1">
+                                    <div className="font-semibold text-white">🍓 Fruit – 21 porties</div>
+                                    <div>Dagelijks meerdere porties vers fruit, zoals ananas, kiwi, avocado en blauwe bessen.</div>
+                                    <div>Bron van vitamines, mineralen en natuurlijke energie.</div>
+                                  </div>
+
+                                  <div className="space-y-1">
+                                    <div className="font-semibold text-white">🌰 Zaden &amp; noten</div>
+                                    <ul className="list-disc space-y-1 pl-5">
+                                      <li>30 gram per dag</li>
+                                      <li>Verpakt per portie</li>
+                                    </ul>
+                                    <div>Ondersteunt energie, verzadiging en gezonde vetinname.</div>
+                                  </div>
+
+                                  <div className="space-y-1">
+                                    <div className="font-semibold text-white">🥬 Power-shake</div>
+                                    <ul className="list-disc space-y-1 pl-5">
+                                      <li>1 portie per dag</li>
+                                      <li>Bevat 36 verschillende soorten groenten</li>
+                                      <li>Verpakt als een makkelijk te mengen shake</li>
+                                    </ul>
+                                    <div>Voor extra groenten zonder koken.</div>
+                                  </div>
+
+                                  <div className="space-y-1">
+                                    <div className="font-semibold text-white">💪 Eiwitten</div>
+                                    <ul className="list-disc space-y-1 pl-5">
+                                      <li>50 gram proteïnepoeder per dag</li>
+                                      <li>Keuze uit plantaardig of dierlijk</li>
+                                    </ul>
+                                    <div>Extra eiwitten ter ondersteuning van herstel en borstvoeding.</div>
+                                  </div>
+
+                                  <div className="space-y-1">
+                                    <div className="font-semibold text-white">💊 Vitamine- en mineralencapsules</div>
+                                    <div>Ter aanvulling van je dagelijkse voeding in deze intensieve periode.</div>
+                                  </div>
+
+                                  <div className="space-y-1">
+                                    <div className="font-semibold text-white">🌙 Avond relax-snacks</div>
+                                    <div>Bewuste genietmomenten zoals proteïne chips, popcorn of een bonbondoos met bijna-gezonde chocolade.</div>
+                                  </div>
+
+                                  <div className="space-y-1">
+                                    <div className="font-semibold text-white">🎁 Extra’s voor mama, baby én papa</div>
+                                    <div>
+                                      Wisselende verrassingen, zoals babydoekjes, speentjes, gezichtscrème, een magazine
+                                      of iets leuks voor papa (bijvoorbeeld scheerschuim of een boxershort).
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
 
-                              <div className="space-y-3 text-base leading-relaxed text-white/85">
-                                <p>Je hoeft niets te berekenen of zelf samen te stellen.</p>
+                              <div className="space-y-2 text-base leading-relaxed text-white/85">
+                                <h3 className="text-lg font-semibold text-white">Waarvoor bedoeld?</h3>
                                 <p>
-                                  De hoeveelheden zijn afgestemd op deze fase, zodat je lichaam krijgt wat het vraagt —
-                                  zonder overbelasting.
-                                </p>
-                                <p>
-                                  Dit kratje ondersteunt niet alleen je herstel, maar ook je draagkracht in een
-                                  intensieve periode.
+                                  Ondersteuning van herstel, energie en voedingsinname tijdens het geven van borstvoeding.
+                                  Geen dieet en geen maaltijdvervanger, maar een praktische dagelijkse basis.
                                 </p>
                               </div>
                             </div>
@@ -541,73 +580,152 @@ const proceedToPay = async () => {
                             <div className="space-y-6">
                               <div className="space-y-3">
                                 <h3 className="text-lg font-semibold text-white">
-                                  Mama Kratje – zónder borstvoeding
+                                  Mama Kratje – zonder borstvoeding
                                 </h3>
-                                <div className="space-y-3 text-base leading-relaxed text-white/85">
-                                  <p>Herstel, energie en overzicht in een periode waarin alles nieuw is.</p>
-                                  <p>
-                                    Na de bevalling is je lichaam aan het herstellen. Ook zonder borstvoeding vraagt dat
-                                    veel van je energie, reserves en focus. Dit Mama Kratje is samengesteld om je
-                                    dagelijks te ondersteunen met voedzame basis, zonder dat je hoeft na te denken over
-                                    wat je nodig hebt.
-                                  </p>
-                                </div>
+                                <p className="text-base leading-relaxed text-white/85">
+                                  Dit Mama Kratje is afgestemd op moeders die geen borstvoeding geven en hun lichaam
+                                  willen ondersteunen tijdens het herstel na de bevalling. Praktisch, voedend en makkelijk
+                                  in gebruik.
+                                </p>
                               </div>
 
                               <div className="space-y-4">
-                                <h3 className="text-lg font-semibold text-white">De box bevat onder andere:</h3>
-                                <ul className="list-disc space-y-1 pl-5 text-base text-white/85">
-                                  <li>
-                                    21 porties fruit, zaden en noten voor natuurlijke energie, vezels en gezonde vetten
-                                  </li>
-                                  <li>Een dagelijkse power-shake met 36 soorten groenten, ter aanvulling van je voeding</li>
-                                  <li>30 gram eiwit per dag, ter ondersteuning van spierherstel en kracht</li>
-                                </ul>
+                                <h3 className="text-lg font-semibold text-white">Inhoud van het Mama Kratje (per week)</h3>
+                                <div className="space-y-4 text-base text-white/85">
+                                  <div className="space-y-1">
+                                    <div className="font-semibold text-white">🍓 Fruit – 21 porties</div>
+                                    <div>Dagelijks meerdere porties vers fruit, zoals ananas, kiwi, avocado en blauwe bessen.</div>
+                                    <div>Voor vitamines, mineralen en natuurlijke energie.</div>
+                                  </div>
+
+                                  <div className="space-y-1">
+                                    <div className="font-semibold text-white">🌰 Zaden &amp; noten</div>
+                                    <ul className="list-disc space-y-1 pl-5">
+                                      <li>30 gram per dag</li>
+                                      <li>Verpakt per portie</li>
+                                    </ul>
+                                    <div>Voor gezonde vetten, vezels en langdurige verzadiging.</div>
+                                  </div>
+
+                                  <div className="space-y-1">
+                                    <div className="font-semibold text-white">🥬 Power-shake</div>
+                                    <ul className="list-disc space-y-1 pl-5">
+                                      <li>1 portie per dag</li>
+                                      <li>Bevat 36 verschillende soorten groenten</li>
+                                      <li>Verpakt als een lekkere, makkelijk te mengen shake.</li>
+                                    </ul>
+                                  </div>
+
+                                  <div className="space-y-1">
+                                    <div className="font-semibold text-white">💪 Eiwitten</div>
+                                    <ul className="list-disc space-y-1 pl-5">
+                                      <li>30 gram proteïnepoeder per dag</li>
+                                      <li>Keuze uit plantaardig of dierlijk</li>
+                                    </ul>
+                                    <div>Afgestemd op herstel zonder borstvoeding.</div>
+                                  </div>
+
+                                  <div className="space-y-1">
+                                    <div className="font-semibold text-white">💊 Vitamine- en mineralencapsules</div>
+                                    <div>Ter aanvulling van je dagelijkse voeding.</div>
+                                  </div>
+
+                                  <div className="space-y-1">
+                                    <div className="font-semibold text-white">🌙 Avond relax-snacks</div>
+                                    <div>Zoals proteïne chips, popcorn of een bonbondoos met bijna-gezonde chocolade.</div>
+                                  </div>
+
+                                  <div className="space-y-1">
+                                    <div className="font-semibold text-white">🎁 Extra’s voor mama, baby én papa</div>
+                                    <div>
+                                      Wisselende handige en leuke extra’s, zoals babydoekjes, speentjes,
+                                      verzorgingsproducten, een magazine of iets voor papa.
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
 
-                              <div className="space-y-3 text-base leading-relaxed text-white/85">
-                                <p>Alles is vooraf afgestemd en in porties verdeeld.</p>
+                              <div className="space-y-2 text-base leading-relaxed text-white/85">
+                                <h3 className="text-lg font-semibold text-white">Waarvoor bedoeld?</h3>
                                 <p>
-                                  Niet om perfect te eten, maar om elke dag genoeg binnen te krijgen, ook als je hoofd
-                                  vol zit en je tijd tekortkomt.
+                                  Ondersteuning van lichamelijk herstel en dagelijkse voedingsinname na de bevalling.
+                                  Geen maaltijdvervanger, maar een fijne basis voor elke dag.
                                 </p>
-                                <p>Dit kratje geeft structuur, rust en ondersteuning in je herstel — op een haalbare manier.</p>
                               </div>
                             </div>
                           ) : p.id === "mama-kratje-bv" ? (
                             <div className="space-y-6">
                               <div className="space-y-3">
                                 <h3 className="text-lg font-semibold text-white">Mama Kratje – mét borstvoeding</h3>
-                                <div className="space-y-3 text-base leading-relaxed text-white/85">
-                                  <p>Extra voeding voor een lichaam dat meer geeft dan ooit.</p>
-                                  <p>
-                                    Borstvoeding geven betekent dat je lichaam dagelijks extra energie en
-                                    voedingsstoffen verbruikt. Dit Mama Kratje is speciaal samengesteld voor mama’s die
-                                    borstvoeding geven en daarom meer nodig hebben dan alleen basisvoeding.
-                                  </p>
-                                </div>
+                                <p className="text-base leading-relaxed text-white/85">
+                                  Dit Mama Kratje is speciaal samengesteld voor moeders die borstvoeding geven en extra
+                                  voedingsstoffen nodig hebben tijdens het herstel en de melkproductie. Alles zit per
+                                  dag verpakt, zodat je zonder nadenken goed voor jezelf kunt zorgen.
+                                </p>
                               </div>
 
                               <div className="space-y-4">
-                                <h3 className="text-lg font-semibold text-white">De box ondersteunt je met:</h3>
-                                <ul className="list-disc space-y-1 pl-5 text-base text-white/85">
-                                  <li>Een dagelijkse power-shake met 36 soorten groenten</li>
-                                  <li>
-                                    50 gram eiwit per dag, afgestemd op de verhoogde behoefte tijdens borstvoeding
-                                  </li>
-                                  <li>Voeding die helpt om je energie op peil te houden en tekorten te voorkomen</li>
-                                </ul>
+                                <h3 className="text-lg font-semibold text-white">Inhoud van het Mama Kratje (per week)</h3>
+                                <div className="space-y-4 text-base text-white/85">
+                                  <div className="space-y-1">
+                                    <div className="font-semibold text-white">🍓 Fruit – 21 porties</div>
+                                    <div>Dagelijks meerdere porties vers fruit, zoals ananas, kiwi, avocado en blauwe bessen.</div>
+                                    <div>Bron van vitamines, mineralen en natuurlijke energie.</div>
+                                  </div>
+
+                                  <div className="space-y-1">
+                                    <div className="font-semibold text-white">🌰 Zaden &amp; noten</div>
+                                    <ul className="list-disc space-y-1 pl-5">
+                                      <li>30 gram per dag</li>
+                                      <li>Verpakt per portie</li>
+                                    </ul>
+                                    <div>Ondersteunt energie, verzadiging en gezonde vetinname.</div>
+                                  </div>
+
+                                  <div className="space-y-1">
+                                    <div className="font-semibold text-white">🥬 Power-shake</div>
+                                    <ul className="list-disc space-y-1 pl-5">
+                                      <li>1 portie per dag</li>
+                                      <li>Bevat 36 verschillende soorten groenten</li>
+                                      <li>Verpakt als een makkelijk te mengen shake</li>
+                                    </ul>
+                                    <div>Voor extra groenten zonder koken.</div>
+                                  </div>
+
+                                  <div className="space-y-1">
+                                    <div className="font-semibold text-white">💪 Eiwitten</div>
+                                    <ul className="list-disc space-y-1 pl-5">
+                                      <li>50 gram proteïnepoeder per dag</li>
+                                      <li>Keuze uit plantaardig of dierlijk</li>
+                                    </ul>
+                                    <div>Extra eiwitten ter ondersteuning van herstel en borstvoeding.</div>
+                                  </div>
+
+                                  <div className="space-y-1">
+                                    <div className="font-semibold text-white">💊 Vitamine- en mineralencapsules</div>
+                                    <div>Ter aanvulling van je dagelijkse voeding in deze intensieve periode.</div>
+                                  </div>
+
+                                  <div className="space-y-1">
+                                    <div className="font-semibold text-white">🌙 Avond relax-snacks</div>
+                                    <div>Bewuste genietmomenten zoals proteïne chips, popcorn of een bonbondoos met bijna-gezonde chocolade.</div>
+                                  </div>
+
+                                  <div className="space-y-1">
+                                    <div className="font-semibold text-white">🎁 Extra’s voor mama, baby én papa</div>
+                                    <div>
+                                      Wisselende verrassingen, zoals babydoekjes, speentjes, gezichtscrème, een magazine
+                                      of iets leuks voor papa (bijvoorbeeld scheerschuim of een boxershort).
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
 
-                              <div className="space-y-3 text-base leading-relaxed text-white/85">
-                                <p>Je hoeft niets te berekenen of zelf samen te stellen.</p>
+                              <div className="space-y-2 text-base leading-relaxed text-white/85">
+                                <h3 className="text-lg font-semibold text-white">Waarvoor bedoeld?</h3>
                                 <p>
-                                  De hoeveelheden zijn afgestemd op deze fase, zodat je lichaam krijgt wat het vraagt —
-                                  zonder overbelasting.
-                                </p>
-                                <p>
-                                  Dit kratje ondersteunt niet alleen je herstel, maar ook je draagkracht in een
-                                  intensieve periode.
+                                  Ondersteuning van herstel, energie en voedingsinname tijdens het geven van borstvoeding.
+                                  Geen dieet en geen maaltijdvervanger, maar een praktische dagelijkse basis.
                                 </p>
                               </div>
                             </div>
