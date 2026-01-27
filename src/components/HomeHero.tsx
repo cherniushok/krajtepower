@@ -273,7 +273,7 @@ export default function HomeHero() {
                   )}
                 </h1>
 
-                <div className="hero-scroll font-body mt-4 max-w-2xl text-base leading-relaxed text-black/70 sm:text-lg space-y-3 flex-1 min-h-0 overflow-y-scroll pr-4">
+                <div className="hero-scroll font-body mt-4 max-w-2xl text-base leading-relaxed text-black/70 sm:text-lg space-y-3 flex-1 min-h-0 overflow-y-auto">
                   {current.description
                     .split("\n")
                     .map((line) => line.trim())
@@ -345,21 +345,11 @@ export default function HomeHero() {
             will-change: transform, opacity;
           }
           .hero-scroll {
-            scrollbar-gutter: stable both-edges;
-            scrollbar-width: auto;
-            scrollbar-color: rgba(0, 0, 0, 0.35) rgba(0, 0, 0, 0.08);
+            scrollbar-width: none;
           }
           .hero-scroll::-webkit-scrollbar {
-            width: 12px;
-          }
-          .hero-scroll::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.08);
-            border-radius: 999px;
-          }
-          .hero-scroll::-webkit-scrollbar-thumb {
-            background: rgba(0, 0, 0, 0.35);
-            border-radius: 999px;
-            border: 3px solid rgba(255, 255, 255, 0.6);
+            width: 0;
+            height: 0;
           }
 
           @keyframes heroFadeUp {
