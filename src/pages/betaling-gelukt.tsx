@@ -3,6 +3,7 @@ import Head from "next/head";
 import Header from "@/components/Header";
 import { stripe } from "@/lib/stripe";
 import Image from "next/image";
+import { useEffect } from "react";
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const sessionId = typeof query.session_id === "string" ? query.session_id : "";
@@ -30,6 +31,21 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 };
 
 export default function BetalingGeluktPage() {
+  useEffect(() => {
+    const html = document.documentElement;
+    const body = document.body;
+    const prevHtmlOverflow = html.style.overflow;
+    const prevBodyOverflow = body.style.overflow;
+
+    html.style.overflow = "hidden";
+    body.style.overflow = "hidden";
+
+    return () => {
+      html.style.overflow = prevHtmlOverflow;
+      body.style.overflow = prevBodyOverflow;
+    };
+  }, []);
+
   return (
     <>
       <Head>
