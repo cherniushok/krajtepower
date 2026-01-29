@@ -57,47 +57,49 @@ export default function VragenAntwoordenPage() {
     <>
       <Header />
 
-      <main className="mx-auto max-w-6xl page-pad py-16">
+      <div className="[--page-pad:clamp(20px,6vw,32px)] sm:[--page-pad:clamp(16px,4vw,32px)]">
+        <main className="mx-auto max-w-6xl page-pad py-16">
 
-        <div className="mt-8 rounded-3xl border border-black/10 bg-white p-8 shadow-sm">
-          <div className="space-y-4">
-            {FAQ.map((item, idx) => (
-              <details key={`${item.q}-${idx}`} className="rounded-2xl border border-black/10 bg-black/5 p-5">
-                <summary className="cursor-pointer select-none font-normal">
-                  {item.q}
-                </summary>
-                <p className="mt-3 text-black/70 leading-relaxed">{item.a}</p>
-              </details>
-            ))}
+          <div className="mt-8 rounded-3xl border border-black/10 bg-white p-8 shadow-sm">
+            <div className="space-y-4">
+              {FAQ.map((item, idx) => (
+                <details key={`${item.q}-${idx}`} className="rounded-2xl border border-black/10 bg-black/5 p-5">
+                  <summary className="cursor-pointer select-none font-normal">
+                    {item.q}
+                  </summary>
+                  <p className="mt-3 text-black/70 leading-relaxed">{item.a}</p>
+                </details>
+              ))}
+            </div>
           </div>
-        </div>
-      </main>
-      {/* Footer */}
-      <footer className="bg-[var(--bg-1)] pb-6">
-        <div className="mx-auto max-w-6xl page-pad">
-          <div className="mt-10 border-t border-black/10 pt-8">
-            <div className="grid gap-6 md:grid-cols-12 md:items-center">
-              <div className="md:col-span-5">
-                <div
-                  className="text-2xl font-black tracking-tight"
-                  style={{ fontFamily: "ui-serif, Georgia, serif" }}
-                >
-                  KRATJE POWER
+        </main>
+        {/* Footer */}
+        <footer className="bg-[var(--bg-1)] pb-6">
+          <div className="mx-auto max-w-6xl page-pad">
+            <div className="mt-10 border-t border-black/10 pt-8">
+              <div className="grid gap-6 md:grid-cols-12 md:items-center">
+                <div className="md:col-span-5">
+                  <div
+                    className="text-2xl font-black tracking-tight"
+                    style={{ fontFamily: "ui-serif, Georgia, serif" }}
+                  >
+                    KRATJE POWER
+                  </div>
+                  <p className="mt-2 max-w-md text-sm text-black/60 leading-relaxed">
+                    We ondersteunen mama’s herstel met wekelijkse boxen vol verse producten en vitamines.
+                  </p>
                 </div>
-                <p className="mt-2 max-w-md text-sm text-black/60 leading-relaxed">
-                  We ondersteunen mama’s herstel met wekelijkse boxen vol verse producten en vitamines.
+              </div>
+
+              <div className="mt-8 border-t border-black/10 pt-6 pb-4">
+                <p className="text-xs text-black/50">
+                  © {new Date().getFullYear()} Kratje Power. Alle rechten voorbehouden.
                 </p>
               </div>
             </div>
-
-            <div className="mt-8 border-t border-black/10 pt-6 pb-4">
-              <p className="text-xs text-black/50">
-                © {new Date().getFullYear()} Kratje Power. Alle rechten voorbehouden.
-              </p>
-            </div>
           </div>
-        </div>
-      </footer>
+        </footer>
+      </div>
     </>
   );
 }
