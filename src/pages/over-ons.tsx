@@ -1,4 +1,5 @@
 "use client";
+import Head from "next/head";
 import Header from "@/components/Header";
 import Link from "next/link";
 
@@ -12,6 +13,9 @@ export default function OverOnsPage() {
 
   return (
     <>
+      <Head>
+        <title>Over ons • Kratje Power</title>
+      </Head>
       <Header />
 
       <div className="[--page-pad:clamp(20px,6vw,32px)] sm:[--page-pad:clamp(16px,4vw,32px)]">
