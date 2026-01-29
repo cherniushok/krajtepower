@@ -59,7 +59,7 @@ export default function ShopPage() {
       per: "per 8 weken",
       planOptions: [
         { id: "6", label: "6 weken", price: "€295", per: "per 6 weken" },
-        { id: "8", label: "8 weken", price: "€385", per: "per 8 weken" },
+        { id: "8", label: "8 weken", price: "€0,5", per: "per 8 weken" },
       ],
       defaultPlanId: "8",
       highlights: [
