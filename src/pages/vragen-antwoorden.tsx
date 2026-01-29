@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import Header from "@/components/Header";
 
 const FAQ = [
@@ -55,6 +56,9 @@ const FAQ = [
 export default function VragenAntwoordenPage() {
   return (
     <>
+      <Head>
+        <title>Vragen & antwoorden • Kratje Power</title>
+      </Head>
       <Header />
 
       <div className="[--page-pad:clamp(20px,6vw,32px)] sm:[--page-pad:clamp(16px,4vw,32px)]">
