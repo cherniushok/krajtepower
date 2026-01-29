@@ -36,13 +36,13 @@ export default function BetalingGeluktPage() {
         <title>Betaling geslaagd • Kratje Power</title>
       </Head>
       <Header />
-      <main className="relative min-h-screen bg-[var(--bg-1)]">
+      <main className="relative min-h-screen bg-[var(--bg-1)] overflow-hidden">
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
           <div className="absolute -top-24 -right-20 h-64 w-64 rounded-full bg-emerald-200/40 blur-3xl" />
           <div className="absolute -bottom-24 -left-16 h-64 w-64 rounded-full bg-amber-200/40 blur-3xl" />
         </div>
 
-        <div className="relative mx-auto flex min-h-[70vh] max-w-3xl flex-col items-center justify-center gap-8 page-pad py-12 text-center">
+        <div className="relative mx-auto flex min-h-[70vh] max-w-3xl flex-col items-center justify-center gap-8 page-pad py-10 text-center">
           <div className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 shadow-[0_12px_30px_rgba(16,185,129,0.2)]">
             <svg
               viewBox="0 0 24 24"
@@ -70,14 +70,14 @@ export default function BetalingGeluktPage() {
             </p>
           </div>
 
-          <div className="rounded-[28px] border border-black/10 bg-white/70 p-8 shadow-[0_20px_60px_rgba(0,0,0,0.08)]">
+          <div className="relative">
             <Image
               src="/logo.png"
               alt="Kratje Power logo"
               width={260}
               height={260}
               sizes="(max-width: 640px) 200px, 260px"
-              className="h-44 w-44 sm:h-52 sm:w-52"
+              className="h-44 w-44 sm:h-52 sm:w-52 opacity-90 drop-shadow-[0_18px_40px_rgba(0,0,0,0.12)]"
             />
           </div>
         </div>
