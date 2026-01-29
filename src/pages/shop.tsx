@@ -261,7 +261,7 @@ const proceedToPay = async () => {
 
       <Header />
 
-      <div className="[--page-pad:clamp(40px,12vw,64px)] sm:[--page-pad:clamp(16px,4vw,32px)]">
+      <div className="[--page-pad:clamp(20px,6vw,32px)] sm:[--page-pad:clamp(16px,4vw,32px)]">
         <main className="min-h-screen bg-[var(--bg-1)] pt-[6px] sm:pt-14">
           {/* Active products */}
           <section className="pb-2 sm:pb-10">
