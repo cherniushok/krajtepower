@@ -281,14 +281,14 @@ const proceedToPay = async () => {
                     {/* subtle decorative corner */}
                     <div className="pointer-events-none absolute -right-24 -top-24 h-56 w-56 rounded-full bg-black/5" />
                     <div className="absolute top-9 right-4 z-10 flex flex-col items-end text-right sm:right-6">
-                      <div className="flex items-center justify-end gap-6 whitespace-nowrap text-3xl font-black tabular-nums">
+                      <div className="flex items-center justify-end gap-3 whitespace-nowrap text-2xl font-black tabular-nums sm:gap-6 sm:text-3xl">
                         <Image
                           src="/logo.png"
                           alt="Kratje Power logo"
                           width={38}
                           height={38}
-                          sizes="38px"
-                          className="h-9 w-9 -ml-2.5"
+                          sizes="(max-width: 640px) 28px, 38px"
+                          className="h-7 w-7 -ml-2 sm:h-9 sm:w-9 sm:-ml-2.5"
                         />
                         {displayPrice}
                       </div>
@@ -306,7 +306,7 @@ const proceedToPay = async () => {
                                 aria-checked={isEightWeeks}
                                 aria-label={`Kies ${isEightWeeks ? "8" : "6"} weken`}
                                 className={
-                                  "relative inline-flex h-12 w-56 items-center overflow-hidden rounded-full border border-black/15 bg-white p-1 text-sm font-semibold tracking-[0.12em] text-black/70 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.7)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/40"
+                                  "relative inline-flex h-10 w-44 items-center overflow-hidden rounded-full border border-black/15 bg-white p-1 text-[11px] font-semibold tracking-[0.1em] text-black/70 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.7)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/40 sm:h-12 sm:w-56 sm:text-sm sm:tracking-[0.12em]"
                                 }
                               >
                                 <span

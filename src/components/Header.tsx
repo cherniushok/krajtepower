@@ -59,11 +59,27 @@ export default function Header() {
 
       if (!response.ok) {
         const data = await response.json().catch(() => null);
-        throw new Error(data?.error || "Opslaan mislukt. Probeer het opnieuw.");
+        const errorMessage = data?.error || "Opslaan mislukt. Probeer het opnieuw.";
+        const isDuplicate =
+          data?.code === "23505" ||
+          data?.duplicate === true ||
+          (typeof errorMessage === "string" &&
+            (errorMessage.includes("duplicate key") ||
+              errorMessage.includes("call_requests_phone_key")));
+
+        if (isDuplicate) {
+          setPhoneSubmitted(true);
+          setPhone("");
+          setPhoneTouched(false);
+          return;
+        }
+
+        throw new Error(errorMessage);
       }
 
       setPhoneSubmitted(true);
       setPhone("");
+      setPhoneTouched(false);
     } catch (error) {
       const message =
         error instanceof Error ? error.message : "Opslaan mislukt. Probeer het opnieuw.";
@@ -134,15 +150,13 @@ export default function Header() {
           {/* Links */}
           <nav className="px-6 pt-6">
             <ul className="space-y-3">
-              {[
-                { label: "Over ons", href: "/over-ons" },
-                { label: "Kratje box", href: "/shop" },
-                // Scroll to the section with the 3 photos (support multiple ids to be safe)
-                { label: "Hoe het werkt", href: "#hoe-het-werkt", scrollTargets: ["hoe-het-werkt", "inhoud", "steps", "how-it-works"] },
-                { label: "Vragen/antwoorden", href: "/vragen-antwoorden" },
-                { label: "Instagram", href: "https://www.instagram.com/kratjepower.nl?igsh=eW15aGplM2phdWVq" },
-                { label: "TikTok", href: "https://www.tiktok.com/@kratjepower7" },
-              ].map((item) => (
+                {[
+                  { label: "Over ons", href: "/over-ons" },
+                  { label: "Kratje box", href: "/shop" },
+                  { label: "Vragen/antwoorden", href: "/vragen-antwoorden" },
+                  { label: "Instagram", href: "https://www.instagram.com/kratjepower.nl?igsh=eW15aGplM2phdWVq" },
+                  { label: "TikTok", href: "https://www.tiktok.com/@kratjepower7" },
+                ].map((item) => (
                 <li key={item.href}>
                   {item.href.startsWith("/") ? (
                     <Link
@@ -257,7 +271,7 @@ export default function Header() {
                 }
               />
 
-              {phoneTouched && !isPhoneValid ? (
+              {phoneTouched && !isPhoneValid && !phoneSubmitted ? (
                 <p className="text-xs text-red-600">
                   Vul een geldig telefoonnummer in (9–12 cijfers).
                 </p>
