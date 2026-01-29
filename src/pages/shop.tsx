@@ -261,11 +261,11 @@ const proceedToPay = async () => {
 
       <Header />
 
-      <main className="min-h-screen bg-[var(--bg-1)] pt-24 sm:pt-14">
-
-        {/* Active products */}
-        <section className="pb-10">
-          <div className="mx-auto max-w-6xl page-pad">
+      <div className="[--page-pad:clamp(40px,12vw,64px)] sm:[--page-pad:clamp(16px,4vw,32px)]">
+        <main className="min-h-screen bg-[var(--bg-1)] pt-[6px] sm:pt-14">
+          {/* Active products */}
+          <section className="pb-2 sm:pb-10">
+            <div className="mx-auto max-w-6xl page-pad">
 
             <div className="grid gap-8 md:grid-cols-2">
               {active.map((p) => {
@@ -976,10 +976,10 @@ const proceedToPay = async () => {
             </div>
           </>
         ) : null}
-      </main>
-      {/* Footer */}
-      <footer className="bg-[var(--bg-1)] pb-6">
-        <div className="mx-auto max-w-6xl page-pad">
+        </main>
+        {/* Footer */}
+        <footer className="bg-[var(--bg-1)] pb-[6px] sm:pb-6">
+          <div className="mx-auto max-w-6xl page-pad">
           <div className="mt-10 border-t border-black/10 pt-8">
             <div className="grid gap-6 md:grid-cols-12 md:items-center">
               <div className="md:col-span-5">
@@ -1001,8 +1001,9 @@ const proceedToPay = async () => {
               </p>
             </div>
           </div>
-        </div>
-      </footer>
+          </div>
+        </footer>
+      </div>
     </>
   );
 }
