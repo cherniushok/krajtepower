@@ -51,7 +51,7 @@ export async function POST(req: Request) {
 
     metadata: { orderId: order.id },
 
-    success_url: `${origin}/shop?success=1&session_id={CHECKOUT_SESSION_ID}`,
+    success_url: `${origin}/betaling-gelukt?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${origin}/shop?canceled=1`,
   });
 
