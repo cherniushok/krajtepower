@@ -17,7 +17,7 @@ export default function OverOnsPage() {
       <div className="[--page-pad:clamp(20px,6vw,32px)] sm:[--page-pad:clamp(16px,4vw,32px)]">
         <main className="relative overflow-hidden">
 
-          <div className="relative mx-auto max-w-6xl page-pad py-10">
+          <div className="relative mx-auto max-w-6xl page-pad py-5 sm:py-10">
             {/* Title + intro */}
             <header
               className="text-center"

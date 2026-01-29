@@ -58,7 +58,7 @@ export default function VragenAntwoordenPage() {
       <Header />
 
       <div className="[--page-pad:clamp(20px,6vw,32px)] sm:[--page-pad:clamp(16px,4vw,32px)]">
-        <main className="mx-auto max-w-6xl page-pad py-16">
+        <main className="mx-auto max-w-6xl page-pad py-8 sm:py-16">
 
           <div className="mt-8 rounded-3xl border border-black/10 bg-white p-8 shadow-sm">
             <div className="space-y-4">
