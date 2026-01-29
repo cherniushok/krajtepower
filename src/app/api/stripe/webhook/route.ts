@@ -96,13 +96,14 @@ export async function POST(req: Request) {
             address1?: string | null;
             postcode?: string | null;
             city?: string | null;
+            product_name?: string | null;
           }
         | null = null;
 
       if (orderId) {
         const { data, error } = await supabaseAdmin
           .from("orders")
-          .select("full_name, email, phone, address1, postcode, city")
+          .select("full_name, email, phone, address1, postcode, city, product_name")
           .eq("id", orderId)
           .single();
 
@@ -117,6 +118,7 @@ export async function POST(req: Request) {
         orderDetails?.phone ?? session?.customer_details?.phone ?? null;
       const email =
         orderDetails?.email ?? session?.customer_details?.email ?? null;
+      const productName = orderDetails?.product_name ?? null;
 
       const addressLine =
         orderDetails
@@ -127,6 +129,7 @@ export async function POST(req: Request) {
 
       const message = [
         "Status: Paid ☑️",
+        `Product: ${productName || "-"}`,
         `Name: ${name || "-"}`,
         `Phone number: ${phone || "-"}`,
         `Email: ${email || "-"}`,

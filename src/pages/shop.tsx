@@ -187,9 +187,12 @@ const proceedToPay = async () => {
     }
 
     // 3) Create order
+    const productName = selectedPlan?.label
+      ? `${selectedProduct.name} (${selectedPlan.label})`
+      : selectedProduct.name;
     const orderPayload = {
       productId: selectedProduct.id,
-      productName: selectedProduct.name,
+      productName,
       amountCents,
       customer: {
         fullName: customer.fullName,
