@@ -11,6 +11,8 @@ export default function Header() {
   const [phone, setPhone] = useState("");
   const [phoneTouched, setPhoneTouched] = useState(false);
   const [phoneSubmitted, setPhoneSubmitted] = useState(false);
+  const [phoneSaving, setPhoneSaving] = useState(false);
+  const [phoneError, setPhoneError] = useState<string | null>(null);
 
   const phoneDigits = useMemo(() => phone.replace(/\D/g, ""), [phone]);
   const isPhoneValid = useMemo(() => {
@@ -40,6 +42,36 @@ export default function Header() {
       window.removeEventListener("open-header-menu", handler as EventListener);
     };
   }, []);
+
+  const submitPhone = async () => {
+    setPhoneTouched(true);
+    if (!isPhoneValid || phoneSaving) return;
+
+    setPhoneSaving(true);
+    setPhoneError(null);
+
+    try {
+      const response = await fetch("/api/call-requests/create", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ phone: phoneDigits, source: "header" }),
+      });
+
+      if (!response.ok) {
+        const data = await response.json().catch(() => null);
+        throw new Error(data?.error || "Opslaan mislukt. Probeer het opnieuw.");
+      }
+
+      setPhoneSubmitted(true);
+      setPhone("");
+    } catch (error) {
+      const message =
+        error instanceof Error ? error.message : "Opslaan mislukt. Probeer het opnieuw.";
+      setPhoneError(message);
+    } finally {
+      setPhoneSaving(false);
+    }
+  };
 
   return (
     <header className="w-full bg-white shadow-sm">
@@ -215,6 +247,7 @@ export default function Header() {
                   const digitsOnly = e.target.value.replace(/\D/g, "");
                   setPhone(digitsOnly);
                   setPhoneSubmitted(false);
+                  setPhoneError(null);
                 }}
                 onBlur={() => setPhoneTouched(true)}
                 aria-invalid={phoneTouched && !isPhoneValid}
@@ -233,19 +266,21 @@ export default function Header() {
 
             <button
               type="button"
-              disabled={!isPhoneValid}
-              onClick={() => {
-                setPhoneTouched(true);
-                if (!isPhoneValid) return;
-                setPhoneSubmitted(true);
-              }}
+              disabled={!isPhoneValid || phoneSaving}
+              onClick={submitPhone}
               className={
                 "mt-3 w-full rounded-full px-6 py-3.5 text-sm font-semibold text-white transition " +
-                (isPhoneValid ? "bg-black hover:opacity-90" : "bg-black/30 cursor-not-allowed")
+                (isPhoneValid && !phoneSaving
+                  ? "bg-black hover:opacity-90"
+                  : "bg-black/30 cursor-not-allowed")
               }
             >
-              Bel me
+              {phoneSaving ? "Even wachten..." : "Bel me"}
             </button>
+
+            {phoneError ? (
+              <p className="mt-2 text-xs text-red-600">{phoneError}</p>
+            ) : null}
 
             <p className="mt-3 text-xs text-black/50">
               Wijk en Aalburg Te. 0651294322{" "}
