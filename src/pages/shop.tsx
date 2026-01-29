@@ -966,9 +966,7 @@ const proceedToPay = async () => {
                         </div>
                       </div>
 
-                      <p className="mt-4 text-xs text-black/50">
-                        Let op: Apple Pay/Google Pay vereisen HTTPS en (bij Stripe Elements/Express) domeinregistratie. 
-                      </p>
+
                     </div>
                   </div>
                 </div>
