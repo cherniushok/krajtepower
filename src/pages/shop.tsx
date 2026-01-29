@@ -166,7 +166,7 @@ const proceedToPay = async () => {
     if (!selectedProduct) throw new Error("Selecteer een product.");
 
     // 1) price -> cents (ВАЖЛИВО: щоб не було NaN)
-    const priceStr = String(selectedProduct.price ?? "");
+    const priceStr = String(summaryPrice ?? selectedProduct.price ?? "");
     const parsed = Number(priceStr.replace(/[^\d.,]/g, "").replace(",", "."));
     const amountCents = Math.round(parsed * 100);
 
