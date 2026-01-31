@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { stripe } from "@/lib/stripe";
 import { supabaseAdmin } from "@/lib/supabaseAdmin";
+import { buildPaidEmail, sendEmail } from "@/lib/email";
 
 export const runtime = "nodejs";
 
@@ -97,13 +98,18 @@ export async function POST(req: Request) {
             postcode?: string | null;
             city?: string | null;
             product_name?: string | null;
+            amount_cents?: number | null;
+            currency?: string | null;
+            paid_email_sent_at?: string | null;
           }
         | null = null;
 
       if (orderId) {
         const { data, error } = await supabaseAdmin
           .from("orders")
-          .select("full_name, email, phone, address1, postcode, city, product_name")
+          .select(
+            "full_name, email, phone, address1, postcode, city, product_name, amount_cents, currency, paid_email_sent_at"
+          )
           .eq("id", orderId)
           .single();
 
@@ -119,6 +125,9 @@ export async function POST(req: Request) {
       const email =
         orderDetails?.email ?? session?.customer_details?.email ?? null;
       const productName = orderDetails?.product_name ?? null;
+      const amountCents = orderDetails?.amount_cents ?? null;
+      const currency = orderDetails?.currency ?? null;
+      const paidEmailSentAt = orderDetails?.paid_email_sent_at ?? null;
 
       const addressLine =
         orderDetails
@@ -140,6 +149,37 @@ export async function POST(req: Request) {
         await sendTelegramNotification(message);
       } catch (err) {
         console.error("Telegram notify failed", err);
+      }
+
+      if (orderId && email && !paidEmailSentAt) {
+        try {
+          const emailPayload = buildPaidEmail({
+            name,
+            email,
+            phone,
+            addressLine,
+            productName,
+            amountCents,
+            currency,
+            receiptUrl,
+          });
+
+          const result = await sendEmail({
+            to: email,
+            subject: emailPayload.subject,
+            text: emailPayload.text,
+            html: emailPayload.html,
+          });
+
+          if ("ok" in result && result.ok) {
+            await supabaseAdmin
+              .from("orders")
+              .update({ paid_email_sent_at: new Date().toISOString() })
+              .eq("id", orderId);
+          }
+        } catch (err) {
+          console.error("Paid email send failed", err);
+        }
       }
     }
   }

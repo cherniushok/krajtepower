@@ -286,7 +286,7 @@ const proceedToPay = async () => {
                     <div className="absolute top-9 right-4 z-10 flex flex-col items-end text-right sm:right-6">
                       <div className="flex items-center justify-end gap-3 whitespace-nowrap text-2xl font-black tabular-nums sm:gap-6 sm:text-3xl">
                         <Image
-                          src="/logo.png"
+                          src="/logo.jpg"
                           alt="Kratje Power logo"
                           width={38}
                           height={38}

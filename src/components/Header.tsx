@@ -114,7 +114,7 @@ export default function Header() {
           <div className="flex items-center justify-between border-b border-black/10 px-6 py-5">
             <div className="flex items-center gap-2">
               <Image
-                src="/logo.png"
+                src="/logo.jpg"
                 alt="Kratje Power logo"
                 width={38}
                 height={38}
@@ -330,7 +330,7 @@ export default function Header() {
         >
           <span>KRATJE POWER</span>
           <Image
-            src="/logo.png"
+            src="/logo.jpg"
             alt="Kratje Power logo"
             width={38}
             height={38}

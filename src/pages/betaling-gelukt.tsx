@@ -88,7 +88,7 @@ export default function BetalingGeluktPage() {
 
           <div className="relative">
             <Image
-              src="/logo.png"
+              src="/logo.jpg"
               alt="Kratje Power logo"
               width={260}
               height={260}

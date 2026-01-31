@@ -45,7 +45,7 @@ export default function HomeHero() {
           "Mama Krat geeft je gerichte, voedzame extra’s: praktisch, en onderbouwd — zonder dat jij hoeft uit te zoeken wat je nodig hebt.",
         primaryCta: "Kies jouw pakket",
         secondaryCta: "Contact",
-        imageSrc: "/collage.png",
+        imageSrc: "/collage.jpg",
       },
       {
         id: "s3",
@@ -76,7 +76,7 @@ export default function HomeHero() {
           "Want het Mama Kratje draait niet alleen om gezond eten, maar om goed zorgen voor jezelf. En dat betekent óók genieten.",
         primaryCta: "Start nu",
         secondaryCta: "→",
-        imageSrc: "/mamarelax.png",
+        imageSrc: "/mamarelax.jpg",
       },
       {
         id: "s5",
