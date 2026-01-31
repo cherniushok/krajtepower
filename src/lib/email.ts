@@ -53,7 +53,7 @@ export async function sendEmail(payload: EmailPayload) {
     subject: payload.subject,
     text: payload.text,
     html: payload.html,
-    replyTo: payload.replyTo ?? mailReplyTo || undefined,
+    replyTo: payload.replyTo ?? mailReplyTo ?? undefined,
   });
 
   return { ok: true, messageId: info.messageId } as const;
