@@ -21,10 +21,6 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Order not found" }, { status: 404 });
   }
 
-  if (order.status === "paid") {
-    return NextResponse.json({ error: "Order already paid" }, { status: 400 });
-  }
-
   const amountCents = Number(order.amount_cents);
   if (!Number.isFinite(amountCents) || amountCents <= 0) {
     return NextResponse.json({ error: "Invalid amount" }, { status: 400 });
