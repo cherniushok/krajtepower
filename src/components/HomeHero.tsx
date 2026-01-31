@@ -91,7 +91,7 @@ export default function HomeHero() {
           "Ben jij klaar om voor jezelf te zorgen?",
         primaryCta: "Hoe werkt het?",
         secondaryCta: "Contact",
-        imageSrc: "/logo.png",
+        imageSrc: "/logo1.png",
       },
     ],
     []
