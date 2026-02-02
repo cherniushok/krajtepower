@@ -532,7 +532,7 @@ const proceedToPay = async () => {
                           onClick={() => startCheckout(p.id)}
                           className="rounded-full bg-black px-7 py-3.5 text-sm font-semibold text-white hover:opacity-90"
                         >
-                          Abonneren
+                          Bestellen
                         </button>
                         <button
                           type="button"
@@ -769,7 +769,7 @@ const proceedToPay = async () => {
                             }}
                             className="w-full rounded-full bg-black px-7 py-3.5 text-sm font-semibold text-white hover:opacity-90"
                           >
-                            Abonneren
+                            Bestellen
                           </button>
                         </div>
                       </div>
