@@ -3,6 +3,7 @@
 import "../app/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import { Analytics } from "@vercel/analytics/next";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -13,6 +14,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="apple-touch-icon" href="/logo.png" sizes="180x180" />
       </Head>
       <Component {...pageProps} />
+      <Analytics />
     </>
   );
 }
